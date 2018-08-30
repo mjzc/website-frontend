@@ -1,0 +1,310 @@
+html, body, #app, .admin-page {
+  height: 100%; }
+
+.top-nav {
+  width: 100%;
+  height: 50px;
+  line-height: 50px;
+  background-color: #157aae;
+  padding: 0 30px;
+  color: #fff;
+  padding-right: 10px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  box-sizing: border-box;
+  z-index: 9999; }
+  .top-nav span {
+    font-size: 24px;
+    font-weight: bold; }
+  .top-nav button {
+    border: 0;
+    color: #fff;
+    font-size: 14px;
+    width: 90px;
+    height: 30px;
+    border-radius: 4px;
+    margin-left: 10px;
+    line-height: 30px; }
+  .top-nav .exit-btn {
+    background: #E63535; }
+  .top-nav .toWeb-btn {
+    background: #20cc72; }
+
+.middle-content {
+  width: 100%;
+  display: flex;
+  min-height: 100%;
+  overflow: scroll;
+  margin: 50px 0 10px; }
+  .middle-content .left-menu {
+    width: 20%;
+    background: #f1f9fc;
+    text-align: center;
+    color: #fff; }
+    .middle-content .left-menu .left-manu-nav {
+      height: 38px;
+      line-height: 38px;
+      background-color: #1081bb;
+      color: #fff;
+      text-align: center; }
+    .middle-content .left-menu .nav-class {
+      color: #2d2d32; }
+      .middle-content .left-menu .nav-class .class-content {
+        border-bottom: 1px solid #ddd; }
+      .middle-content .left-menu .nav-class .class-content:last-child {
+        border-bottom: 0; }
+      .middle-content .left-menu .nav-class .class-name {
+        border-bottom: 1px solid #ddd;
+        font-weight: bold;
+        height: 35px;
+        line-height: 35px; }
+      .middle-content .left-menu .nav-class ul {
+        list-style: none;
+        padding: 0;
+        margin: 0; }
+        .middle-content .left-menu .nav-class ul li {
+          height: 35px;
+          line-height: 35px;
+          font-size: 12px;
+          margin: 0;
+          padding: 0; }
+          .middle-content .left-menu .nav-class ul li i {
+            padding-right: 10px; }
+          .middle-content .left-menu .nav-class ul li a, .middle-content .left-menu .nav-class ul li a:hover, .middle-content .left-menu .nav-class ul li a:focus, .middle-content .left-menu .nav-class ul li a:visited {
+            text-decoration: none;
+            color: #387ef5; }
+        .middle-content .left-menu .nav-class ul .active {
+          font-weight: bold;
+          font-size: 16px !important; }
+  .middle-content .right-menu {
+    width: 100%;
+    min-height: 100%;
+    color: #2d2d32;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    font-size: 14px; }
+    .middle-content .right-menu .right-menu-nav {
+      width: 100%;
+      background: #f1f9fc;
+      height: 30px;
+      line-height: 30px;
+      padding: 0 20px;
+      border-bottom: 1px solid #d1dbdd; }
+    .middle-content .right-menu .nav-page {
+      border: 1px solid #f3f3f3;
+      margin: 10px;
+      border-radius: 5px; }
+      .middle-content .right-menu .nav-page .page-name {
+        border-bottom: 1px solid #f3f3f3;
+        font-weight: bold;
+        padding: 0 15px;
+        height: 30px;
+        line-height: 30px; }
+        .middle-content .right-menu .nav-page .page-name i {
+          margin-right: 5px; }
+      .middle-content .right-menu .nav-page .content {
+        padding: 0 15px 10px; }
+        .middle-content .right-menu .nav-page .content .group-btn {
+          padding: 10px 0; }
+          .middle-content .right-menu .nav-page .content .group-btn .del-btn, .middle-content .right-menu .nav-page .content .group-btn .add-btn, .middle-content .right-menu .nav-page .content .group-btn .refresh-btn {
+            height: 30px;
+            line-height: 30px;
+            border-radius: 5px;
+            text-align: center;
+            color: #fff;
+            border: 0; }
+          .middle-content .right-menu .nav-page .content .group-btn .del-btn {
+            background: #dc514c; }
+          .middle-content .right-menu .nav-page .content .group-btn .add-btn {
+            background: #5a98dd; }
+          .middle-content .right-menu .nav-page .content .group-btn .refresh-btn {
+            background: #5eb95e; }
+        .middle-content .right-menu .nav-page .content .right {
+          float: right; }
+          .middle-content .right-menu .nav-page .content .right .search-input {
+            width: 150px;
+            border: 1px solid #ddd;
+            padding: 0 5px;
+            display: inline-block;
+            box-sizing: border-box;
+            height: 30px;
+            margin-right: 3px; }
+          .middle-content .right-menu .nav-page .content .right .search-btn {
+            background: #5eb95e;
+            height: 30px;
+            line-height: 30px;
+            text-align: center;
+            color: #fff;
+            border: 0; }
+      .middle-content .right-menu .nav-page .content-table {
+        text-align: center; }
+        .middle-content .right-menu .nav-page .content-table table {
+          width: 100%;
+          border-bottom: 1px solid #ddd;
+          border-top: 1px solid #ddd;
+          height: 30px;
+          line-height: 30px; }
+          .middle-content .right-menu .nav-page .content-table table .title {
+            background: #f5fafe; }
+          .middle-content .right-menu .nav-page .content-table table tr {
+            border-top: 1px solid #ddd; }
+          .middle-content .right-menu .nav-page .content-table table tr :last-child {
+            border: 0; }
+          .middle-content .right-menu .nav-page .content-table table .do-something i {
+            margin-right: 6px; }
+
+.page-bar {
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+  width: 100%;
+  background: #f5fafe;
+  text-align: right;
+  padding: 0 10px;
+  height: 30px;
+  margin-top: 10px; }
+
+.log-from-box {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  display: table;
+  margin: auto;
+  height: auto;
+  width: 50%;
+  border: 1px solid #eee;
+  padding: 20px;
+  text-align: center; }
+  .log-from-box input {
+    width: 180px;
+    height: 30px;
+    border: 1px solid #eee;
+    display: inline-block;
+    margin: 10px 0;
+    padding: 0 5px; }
+  .log-from-box .log-btn {
+    width: 100px;
+    border: 0;
+    height: 30px;
+    line-height: 30px;
+    font-size: 16px;
+    color: #fff;
+    background: #2c506d;
+    margin-top: 10px; }
+
+.responsive-icon {
+  position: absolute;
+  right: 8px;
+  display: none; }
+
+.responsive-menu {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.9);
+  left: 0;
+  width: 50%;
+  color: #fff;
+  font-size: 16px;
+  text-align: center;
+  z-index: 9999;
+  display: none; }
+  .responsive-menu .menu-head {
+    font-size: 18px;
+    height: 50px;
+    line-height: 50px;
+    border-bottom: 1px solid #eee; }
+  .responsive-menu .menu-list .menu-item-content .menu-title {
+    height: 40px;
+    line-height: 40px;
+    margin-top: 20px; }
+  .responsive-menu .menu-list .menu-item-content ul {
+    list-style: none;
+    padding: 0;
+    margin: 0; }
+  .responsive-menu .menu-list .menu-item-content li {
+    height: 35px;
+    line-height: 35px; }
+  .responsive-menu .menu-list .menu-item-content li:last-child {
+    border: 0; }
+  .responsive-menu .menu-list .menu-item-content a {
+    text-decoration: none;
+    color: #fff;
+    border-bottom: 1px solid;
+    font-size: 14px; }
+
+.responsive-toWeb-icon {
+  display: none;
+  font-size: 16px !important;
+  padding: 0 10px; }
+
+.responsive-exit-icon {
+  display: none;
+  font-size: 16px !important; }
+
+.introdution-box {
+  display: flex;
+  align-items: center;
+  margin-top: 20px; }
+
+.introdution-input {
+  display: inline-block;
+  border: 1px solid #eee;
+  width: 60%;
+  padding: 10px;
+  box-sizing: content-box; }
+
+.text-content {
+  width: 90%;
+  margin: 20px auto; }
+
+.input-box {
+  display: inline-block !important;
+  border: 1px solid #eee !important;
+  width: 50% !important;
+  padding: 2px !important;
+  box-sizing: content-box;
+  height: 24px !important;
+  line-height: 24px !important; }
+
+.pagination-box {
+  text-align: right;
+  overflow: scroll; }
+
+@media screen and (max-width: 720px) {
+  .left-menu {
+    display: none; }
+
+  .responsive-menu {
+    display: block; }
+
+  .responsive-icon {
+    display: inline; }
+
+  .toWeb-btn {
+    display: none; }
+
+  .exit-btn {
+    display: none; }
+
+  .responsive-exit-icon {
+    display: inline; }
+
+  .responsive-toWeb-icon {
+    display: inline; } }
+@media screen and (max-width: 430px) {
+  .middle-content .right-menu .nav-page .content .right {
+    float: none;
+    padding: 10px 0 5px !important; } }
+@media screen and (min-width: 721px) {
+  .menus {
+    width: 20%;
+    background: #f1f9fc;
+    text-align: center; }
+
+  .left-menu {
+    width: 100% !important; } }
+
+/*# sourceMappingURL=admin.css.map */

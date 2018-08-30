@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+    <title>frontend</title>
+    <style>
+        html,body{
+            height:100%;
+            width:100%;
+            padding:0;
+            margin:0;
+        }
+        #content{
+            width:90%;
+            height:100%;
+            padding:0;
+            margin:10px auto;
+        }
+    </style>
+  </head>
+  <body>
+      <!-- <div id="allmap"></div> -->
+    <div id="app">
+    </div>
+    <!-- built files will be auto injected -->
+    <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=q94UM9A7kt6T105bvtoPWV5zzdiqWlGu"></script>
+    <script>
+        var imgs = document.getElementsByTagName('img');
+
+        for(var i in imgs)
+        {   
+            var img = imgs[i];
+            img.style.width='100%';
+            img.style.height='auto';
+        }
+    </script>
+  </body>
+</html>
