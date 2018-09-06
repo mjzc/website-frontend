@@ -30,15 +30,15 @@
                     </li>
                     <li>
                         <i class="el-icon-caret-right"></i> 
-                        <router-link to="article_manage" :class="{'active':$store.state.navClassId == 3}">文章管理</router-link>
+                        <router-link to="article_manage" :class="{'active':$store.state.navClassId == 3}">博客管理</router-link>
                     </li>
                     <li>
                         <i class="el-icon-caret-right"></i> 
-                        <router-link to="mood_manage" :class="{'active':$store.state.navClassId == 4}">心情管理</router-link>
+                        <router-link to="music_manage" :class="{'active':$store.state.navClassId == 4}">音乐管理</router-link>
                     </li>
                     <li>
                         <i class="el-icon-caret-right"></i> 
-                        <router-link to="soup_manage" :class="{'active':$store.state.navClassId == 5}">鸡汤管理</router-link>
+                        <router-link to="soup_manage" :class="{'active':$store.state.navClassId == 5}">动态管理</router-link>
                     </li>
                 </ul>
             </div>

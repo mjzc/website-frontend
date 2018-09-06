@@ -1,29 +1,62 @@
-html, body, .blog-page {
+html, body {
   height: 100%;
   overflow: scroll; }
 
-.blog-page {
+.bg {
+  background: url("../../images/blog-bg2.png");
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0; }
+
+.bg-blur {
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  -webkit-filter: blur(2px);
+  -moz-filter: blur(2px);
+  -o-filter: blur(2px);
+  -ms-filter: blur(2px);
+  filter: blur(2px); }
+
+.content-front {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
   display: flex; }
 
 .left-box {
-  width: 30%;
+  width: 180px;
   min-height: 100%;
-  overflow: auto; }
+  overflow: auto;
+  background: rgba(0, 0, 0, 0.1); }
   .left-box .head {
-    width: 180px;
-    height: 180px;
+    width: 120px;
+    height: 120px;
     border-radius: 90px;
     background-size: cover;
     margin: 60px auto 10px;
     box-shadow: 0 0 15px 0 #dfdfdf; }
   .left-box .author {
-    text-align: right;
-    margin-right: 40px;
-    font-size: 16px; }
+    width: 120px;
+    font-size: 16px;
+    text-align: center;
+    margin: 0 auto;
+    color: #b3b3b3; }
+    .left-box .author p {
+      margin: 10px; }
+    .left-box .author .intro-text {
+      font-size: 12px; }
   .left-box .blog-nav {
     font-size: 16px;
-    margin: 35px 0;
-    margin-right: 40px; }
+    margin: 25px 0;
+    margin-right: 40px;
+    max-height: 400px;
+    overflow: scroll;
+    color: #fff; }
     .left-box .blog-nav ul {
       list-style: none; }
       .left-box .blog-nav ul li {
@@ -33,39 +66,45 @@ html, body, .blog-page {
         line-height: 25px;
         margin-bottom: 10px; }
       .left-box .blog-nav ul .active {
-        border-right: 3px solid #6d5671; }
+        border-right: 3px solid #fff; }
 
 .right-box {
-  width: 70%;
-  margin: 80px auto 0; }
+  flex: 1;
+  margin: 30px 40px 0;
+  overflow: scroll; }
   .right-box .nav-name {
-    font-size: 24px; }
+    font-size: 20px;
+    margin: 0px 0 10px;
+    padding: 0;
+    color: #b3b3b3; }
   .right-box .tag-contets {
-    width: 80%;
-    margin: 35px auto 0; }
+    width: 100%; }
     .right-box .tag-contets .content-box {
-      background: #eee;
-      border-radius: 10px 10px 0 0;
-      margin-bottom: 40px; }
+      border-radius: 10px;
+      margin-bottom: 40px;
+      background: rgba(255, 255, 255, 0.2);
+      color: #fff; }
       .right-box .tag-contets .content-box .article-title {
-        font-size: 20px;
-        text-align: center; }
+        font-size: 16px;
+        text-align: center;
+        margin: 10px 10px 8px; }
       .right-box .tag-contets .content-box .content-main {
         overflow: scroll;
         padding: 15px 20px;
         letter-spacing: 1px; }
       .right-box .tag-contets .content-box .article-intro, .right-box .tag-contets .content-box .article-main-content {
-        font-size: 16px;
-        padding-bottom: 0;
-        padding-top: 12px; }
+        font-size: 14px;
+        padding: 12px 0 12px;
+        margin: 0; }
       .right-box .tag-contets .content-box .article-main-content {
         text-indent: 43px;
         line-height: 20px; }
       .right-box .tag-contets .content-box .content-bottom {
-        background: #ddd;
-        padding: 10px;
-        border-radius: 0 0 10px 10px; }
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 0 0 10px 10px;
+        padding: 15px; }
         .right-box .tag-contets .content-box .content-bottom .date {
+          font-size: 12px;
           text-align: center;
           padding: 0;
           margin: 0; }
@@ -83,7 +122,7 @@ html, body, .blog-page {
     margin-bottom: 5px; }
   .responsive-top-nav i {
     font-size: 30px;
-    padding: 20px; }
+    padding: 10px; }
 
 .responsive-head {
   width: 50px;
@@ -127,9 +166,24 @@ html, body, .blog-page {
     display: none; }
 
   .right-box {
-    width: 100% !important; }
+    width: 100% !important;
+    margin: 80px 40px 0; }
 
   .responsive-top-nav {
-    display: flex; } }
+    display: flex;
+    background: rgba(255, 255, 255, 0.3); } }
+.responsive-top-nav-name {
+  font-size: 14px;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; }
+
+@media screen and (min-width: 1000px) {
+  .right-box {
+    padding: 0 80px; }
+
+  .left-box {
+    width: 220px; } }
 
 /*# sourceMappingURL=article.css.map */

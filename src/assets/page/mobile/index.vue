@@ -8,17 +8,17 @@
     <div class="page-top">
         <div class="left-nav">
             <ul>
-                <li :class="{ 'active' : classId == 1}">
+                <li :class="{'active' : classId == 1}">
                     <a href="JavaScript:;">Home</a>
                 </li>
-                <li>
-                    <a href="JavaScript:;">Mood</a>
+                 <li>
+                    <a href="JavaScript:;" @click="$router.push('/web/blog')">Blog</a>
                 </li>
                 <li>
-                    <a href="JavaScript:;">Music</a>
+                    <a href="JavaScript:;" @click="$router.push('/web/music')">Music</a>
                 </li>
-                <li>
-                    <a href="JavaScript:;" @click="$router.push('/web/blog')">Articles</a>
+               <li>
+                    <a href="JavaScript:;">Resume</a>
                 </li>
                 <li>
                     <a href="JavaScript:;">About</a>
@@ -49,14 +49,15 @@
                     <a href="JavaScript:;" :class="{ 'active' : classId == 1}">Home</a>
                 </li>
                 <li>
-                    <a href="JavaScript:;">Mood</a>
+                    <a @click="$router.push('/web/blog')">Blog</a>
                 </li>
                 <li>
-                    <a href="JavaScript:;">Music</a>
+                    <a href="JavaScript:;" @click="$router.push('/web/music')">Music</a>
                 </li>
                 <li>
-                    <a @click="$router.push('/web/blog')">Articles</a>
+                    <a href="JavaScript:;">Resume</a>
                 </li>
+                
                 <li>
                     <a href="JavaScript:;">About</a>
                 </li>

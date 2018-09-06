@@ -1,9 +1,5 @@
 # web-frontend
 个人网站前台
-<<<<<<< HEAD
-=======
-
-A Vue.js project
 
 ## Build Setup
 
@@ -20,4 +16,3 @@ npm run build
 # build for production and view the bundle analyzer report
 npm run build --report
 ```
->>>>>>> web frist commit

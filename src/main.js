@@ -1,4 +1,3 @@
-
 import Vue from 'vue'
 import $ from 'jquery'
 import App from './App.vue'
@@ -30,7 +29,7 @@ router.beforeEach((to, from, next) => {
       store.state.navClassId = 2
     } else if (to.path === '/web_admin/edit_article' || to.path === '/web_admin/add_articles' || to.path === '/web_admin/article_manage') {
       store.state.navClassId = 3
-    }  else if (to.path === '/web_admin/edit_mood' || to.path === '/web_admin/add_mood' || to.path === '/web_admin/mood_manage') {
+    } else if (to.path === '/web_admin/edit_music' || to.path === '/web_admin/add_music' || to.path === '/web_admin/music_manage') {
       store.state.navClassId = 4
     } else if (to.path === '/web_admin/soup_manage' || to.path === '/web_admin/add_soup' || to.path === '/web_admin/edit_soup') {
       store.state.navClassId = 5

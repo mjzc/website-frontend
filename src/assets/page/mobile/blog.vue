@@ -1,62 +1,68 @@
  <template>
-  <!-- 导航栏 -->
-    <div class="blog-page">
-        <div class="left-box">
-            <div class="head" :style="{'background-image': 'url('+ headImg +')'}"></div>
-            <div class="author">
-                <p>{{ name }}</p>
-                <p>{{ intro }}</p>
-            </div>
-            <div class="blog-nav">
-                <ul>
-                    <li v-for="item in classList" :key="item" @click="getAllArticles(item.id)" :class="{ 'active': item.id == classId }">{{ item.name }}</li>
-                </ul>
-            </div>
-        </div>
+  <div>
+    <div class="bg bg-blur"></div>
+    <div class="content-front">
         <!-- 适配导航栏 -->
         <div class="responsive-top-nav">
-            <div style="display: flex;padding: 20px;">
+            <div style="display: flex;padding: 10px;">
                 <div class="responsive-head" :style="{'background-image': 'url('+ headImg +')'}"></div>
-                <div>
+                <div class="responsive-top-nav-name">
                     <p>{{ name }}</p>
-                    <p>{{ intro }}</p>
+                    <p style="font-size: 12px;">{{ intro }}</p>
                 </div>
             </div>
-            <i class="el-icon-menu" @click="responsiveIconEvent"></i>
-            <!-- <i class="nav-btn el-icon-menu" ></i> -->
+            <i class="el-icon-menu" style="color: #fff;" @click="responsiveIconEvent"></i>
         </div>
 
-        <div class="responsive-left-nav" v-show="responseMenu">
-            <div class="responsive-left-nav-content" @click="responseMenu = false">
-                <ul>
-                    <li v-for="item in classList" :key="item" @click="getAllArticles(item.id)">
-                        <span :class="{ 'active': item.id == classId }">{{ item.name }}</span>
-                    </li>
-                </ul>
+        <transition name="nav-fade">
+            <div class="responsive-left-nav" v-show="responseMenu" @click="responseMenu = false">
+                <div class="responsive-left-nav-content">
+                    <ul>
+                        <li v-for="(item, index) in classList" :key="index">
+                            <span @click="getAllArticles(item.id)" :class="{ 'active': item.id == classId }">{{ item.name }}</span>
+                        </li>
+                    </ul>
+                </div>
             </div>
+        </transition>
+        
+        <!-- 左边导航栏 -->
+      <div class="left-box">
+        <div class="head" :style="{'background-image': 'url('+ headImg +')'}"></div>
+        <div class="author">
+          <p>{{ name }}</p>
+          <p class="intro-text">{{ intro }}</p>
         </div>
-
-        <!-- 内容 -->
+        <div class="blog-nav">
+          <ul>
+            <li v-for="(item, index) in classList" :key="index" @click="getAllArticles(item.id)" :class="{ 'active': item.id == classId }">{{ item.name }}</li>
+          </ul>
+        </div>
+      </div>
+         <!-- 内容 -->
         <div class="right-box">
             <div class="tag-contets">
                 <p class="nav-name">{{ className }}</p>
                 <div class="no-content" v-show="articlesList.length == 0">暂无文章</div>
-                <div class="content-box" v-for="item in articlesList" :key="item">
+                <div class="content-box" v-for="(item, index) in articlesList" :key="index">
                     <div class="content-main">
                         <p class="article-title">{{ item.title }}</p>
                         <p class="article-intro">简介：{{ item.introductionText }}</p>
                         <p class="article-main-content" v-show="item['content_'+item.id]" v-html="item.contentHtml"></p>
+                        <span style="font-size: 12px; color:rgb(255, 65, 88);float: right;" @click="(item['content_'+item.id])  ? (item['content_'+item.id]) = false : (item['content_'+item.id]) = true">
+                            {{item['content_'+item.id] ? '收起': '阅读全文'}}
+                            <i v-show="!item['content_'+item.id]" class="el-icon-arrow-down"></i>
+                            <i v-show="item['content_'+item.id]" class="el-icon-arrow-up"></i>
+                        </span>
                     </div>
                     <div class="content-bottom">
                         <p class="date">{{ item.createTime }} || {{ item.className}}</p>
-                        <span @click="(item['content_'+item.id])  ? (item['content_'+item.id]) = false : (item['content_'+item.id]) = true">
-                            <a href="JavaScript:;">{{item['content_'+item.id] ? '我暂不要阅读': '我要阅读'}}</a>
-                        </span>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+</div>  
 </template>
 
 <script>
@@ -140,11 +146,23 @@ export default {
 @import url('https://cdn.bootcss.com/element-ui/2.0.11/theme-chalk/index.css');
 @import url("../../styles/mobile/article.css");
 .no-content {
-    background: #eee;
     border-radius: 10px;
     margin-bottom: 40px;
+    background: rgba(255, 255, 255, 0.2);
+    color: #fff;
     height: 30px;
     text-align: center;
     line-height: 30px;
+    font-size: 14px;
 }
+
+.nav-fade-enter-active {
+  transition: all .3s cubic-bezier(.55,0,.1,1);
+}
+.nav-fade-enter, .nav-fade-leave-active {
+  opacity: 0;
+  -webkit-transform: translate(100%, 0);
+  transform: translate(100%, 0);
+}
+
 </style>

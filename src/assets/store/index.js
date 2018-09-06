@@ -51,7 +51,7 @@ const store = new Vuex.Store({
                 store.state.navClassId = 2
             } else if (path == '/web_admin/edit_article' || path == '/web_admin/add_articles' || path == '/web_admin/article_manage' ) {
                 store.state.navClassId = 3
-            } else if (path == '/web_admin/edit_mood' || path == '/web_admin/add_mood' || path == '/web_admin/mood_manage') {
+            } else if (path == '/web_admin/edit_music' || path == '/web_admin/add_music' || path == '/web_admin/music_manage') {
                 store.state.navClassId = 4
             } else if (path == '/web_admin/soup_manage' || path == '/web_admin/add_soup' || path == '/web_admin/edit_soup') {
                 store.state.navClassId = 5

@@ -1,31 +1,66 @@
-html, body, .blog-page {
+html, body {
     height: 100%;
     overflow: scroll;
 }
-.blog-page {
-    display: flex;
+.bg {
+    background: url('../../images/blog-bg2.png');
+    position:fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+.bg-blur {
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    -webkit-filter: blur(2px);
+    -moz-filter: blur(2px);
+    -o-filter: blur(2px);
+    -ms-filter: blur(2px);
+    filter: blur(2px);
+}
+.content-front {
+  position:absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  display: flex;
 }
 .left-box {
-    width: 30%;
+    width: 180px;
     min-height: 100%;
     overflow: auto;
+    background: rgba(0,0,0,0.1);
     .head {
-        width: 180px;
-        height: 180px;
+        width: 120px;
+        height: 120px;
         border-radius: 90px;
         background-size: cover;
         margin: 60px auto 10px;
         box-shadow: 0 0 15px 0 #dfdfdf;
     }
     .author {
-        text-align: right;
-        margin-right: 40px;
+        width: 120px;
         font-size: 16px;
+        text-align: center;
+        margin: 0 auto;
+        color: #b3b3b3;
+        p {
+            margin: 10px;
+        }
+        .intro-text {
+            font-size: 12px;
+        }
     }
     .blog-nav {
         font-size: 16px;
-        margin: 35px 0;
+        margin: 25px 0;
         margin-right: 40px;
+        max-height: 400px;
+        overflow: scroll;
+        color: #fff;
         ul {
             list-style: none;
             li {
@@ -36,28 +71,33 @@ html, body, .blog-page {
                 margin-bottom: 10px;
             }
             .active {
-                border-right: 3px solid #6d5671;
+                border-right: 3px solid #fff;
             }
         }
     }
 }
 
 .right-box {
-    width: 70%;
-    margin: 80px auto 0;
+    flex: 1;
+    margin: 30px 40px 0;
+    overflow: scroll;
     .nav-name {
-        font-size: 24px;
+        font-size: 20px;
+        margin: 0px 0 10px;
+        padding: 0;
+        color: #b3b3b3;
     }
     .tag-contets {
-        width: 80%;
-        margin: 35px auto 0;
+        width: 100%;
         .content-box {
-            background: #eee;
-            border-radius: 10px 10px 0 0;
+            border-radius: 10px;
             margin-bottom: 40px;
+            background: rgba(255,255,255,0.2);
+            color: #fff;
             .article-title{
-                font-size: 20px;
+                font-size: 16px;
                 text-align: center;
+                margin: 10px 10px 8px;
             }
             .content-main {
                 overflow: scroll;
@@ -65,9 +105,9 @@ html, body, .blog-page {
                 letter-spacing: 1px;
             }
             .article-intro {
-                font-size: 16px;
-                padding-bottom: 0;
-                padding-top: 12px;
+                font-size: 14px;
+                padding: 12px 0 12px;
+                margin: 0;
             }
             .article-main-content {
                 @extend .article-intro;
@@ -75,10 +115,11 @@ html, body, .blog-page {
                 line-height: 20px;
             }
             .content-bottom {
-                background: #ddd;
-                padding: 10px;
+                background: rgba(255,255,255,0.1);
                 border-radius: 0 0 10px 10px;
+                padding: 15px;
                 .date {
+                    font-size: 12px;
                     text-align: center;
                     padding: 0;
                     margin: 0;
@@ -101,7 +142,7 @@ html, body, .blog-page {
     }
     i {
         font-size: 30px;
-        padding: 20px;
+        padding: 10px;
     }
 }
 
@@ -154,8 +195,30 @@ html, body, .blog-page {
     }
     .right-box {
         width: 100% !important;
+        margin: 80px 40px 0;
     }
     .responsive-top-nav {
         display: flex;
+        background: rgba(255,255,255,0.3);
+    }
+}
+.responsive-top-nav-name {
+    font-size: 14px;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+// 在765-1068之间
+// @media screen and ( max-width: 1068px ) and (min-width: 765px) {
+// }
+
+// 大于900
+@media screen and (min-width: 1000px) {
+    .right-box {
+        padding: 0 80px;
+    }
+    .left-box {
+        width: 220px;        
     }
 }
