@@ -31,7 +31,7 @@ import {
   getAuthorInfoById,
   editAuthorInfoById,
   uoloadBolgHeadImg
-} from "../../api/admin";
+} from "@/api/admin";
 export default {
   name: "userManage",
   data: function() {

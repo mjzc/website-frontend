@@ -12,7 +12,7 @@
 </template>
 
 <script>
-import { webAdminLogin } from "../../api/admin";
+import { webAdminLogin } from "@/api/admin";
 export default {
   name: "login",
   data: function() {

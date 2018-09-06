@@ -25,7 +25,7 @@
                 </div>
                 <ul>
                     <li>
-                        <i class="el-icon-caret-right"></i> 
+                        <i class="el-icon-caret-right"></i>
                         <router-link to="/web_admin/index" :class="{'active':$store.state.navClassId == 2}">首页管理</router-link> 
                     </li>
                     <li>
@@ -35,6 +35,16 @@
                     <li>
                         <i class="el-icon-caret-right"></i> 
                         <router-link to="music_manage" :class="{'active':$store.state.navClassId == 4}">音乐管理</router-link>
+                        <ul class="second-level">
+                            <li>
+                                <i class="el-icon-caret-right"></i>
+                                <router-link to="singer_manage">歌手管理</router-link>
+                            </li>
+                            <li>
+                                <i class="el-icon-caret-right"></i> 
+                                <router-link to="music_manage">歌曲管理</router-link>
+                            </li>
+                        </ul>
                     </li>
                     <li>
                         <i class="el-icon-caret-right"></i> 
@@ -101,4 +111,3 @@ export default {
   }
 };
 </script>
-

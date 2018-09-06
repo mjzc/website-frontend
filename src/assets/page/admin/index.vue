@@ -23,8 +23,8 @@
 
 <script src="https://cdn.bootcss.com/element-ui/2.0.11/index.js"></script>
 <script>
-import leftNav from "../../components/admin/leftNav.vue";
-import topHead from "../../components/admin/topHead.vue";
+import leftNav from "@/components/admin/leftNav.vue";
+import topHead from "@/components/admin/topHead.vue";
 
 export default {
   name: "adminIndex",
