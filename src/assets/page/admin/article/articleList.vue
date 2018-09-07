@@ -1,62 +1,46 @@
 <template>
-    <div>
-      <div class="content">
-        <div class="group-btn">
-            <button class="del-btn" @click="delArticleCounts"><i class="el-icon-delete"></i>&nbsp;删除</button>
-            <button class="add-btn" @click="$router.push('add_articles')"><i class="el-icon-plus"></i>&nbsp;新增</button>
-            <!-- <button class="refresh-btn"><i class="el-icon-refresh"></i>&nbsp; 刷新</button> -->
-            <div class="right">
-                <input type="text" v-model="searchStr" placeholder="标题/分类" class="search-input">
-                <button class="search-btn" @click="searchAerticles"><i class="el-icon-search"></i>&nbsp;查询</button>
-            </div>
-        </div>
+  <table-list ref="tableList" v-if="flag" :pageNum="pageNum"
+              :pageSize="pageSize"
+              :counts="counts"
+              placehoder="标题/分类"
+              @changePageNum="handleCurrentChange"
+              @changePageSize="handleSizeChange"
+              @search="getArticleList"
+              @add="$router.push('add_articles')"
+              @del="delArticleCounts">
+    <div slot="tableContainer">
+      <table>
+        <tr class="title">
+          <th style="width:10%;"><input @click="checkAll" name="checkAll" type="checkbox"></th>
+          <th style="width:10%;">序号</th>
+          <th style="width:15%;">分类</th>
+          <th style="width:30%;">标题</th>
+          <th style="width:20%;">更新日期</th>
+          <th style="width:15%;">操作</th>
+      </tr>
+      <tr v-for="(item,index) in articlesList" :key="item.id">
+          <td style="width:10%;"><input type="checkbox" name="articlebox" :id="item.id"></td>
+          <td style="width:10%;">{{ index + 1 }}</td>
+          <td style="width:15%;">{{ item.className }}</td>
+          <td style="width:30%;">{{ item.title }}</td>
+          <td style="width:20%;">{{ item.createTime }}</td>
+          <td style="width:15%;" class="do-something">
+              <i class="el-icon-edit" @click="$router.push('edit_article?id='+item.id)"></i>
+              <i class="el-icon-delete" @click="delArticleOne(item.id)"></i>
+          </td>
+      </tr>
+      </table>
     </div>
-    <div class="content-table">
-        <table>
-            <tr class="title">
-                <th style="width:10%;"><input @click="checkAll" name="checkAll" type="checkbox"></th>
-                <th style="width:10%;">序号</th>
-                <th style="width:15%;">分类</th>
-                <th style="width:30%;">标题</th>
-                <th style="width:20%;">更新日期</th>
-                <th style="width:15%;">操作</th>
-            </tr>
-            <tr v-for="(item,index) in articlesList" :key="item.id">
-                <td style="width:10%;"><input type="checkbox" name="articlebox" :id="item.id"></td>
-                <td style="width:10%;">{{ index + 1 }}</td>
-                <td style="width:15%;">{{ item.className }}</td>
-                <td style="width:30%;">{{ item.title }}</td>
-                <td style="width:20%;">{{ item.createTime }}</td>
-                <td style="width:15%;" class="do-something">
-                    <i class="el-icon-edit" @click="$router.push('edit_article?id='+item.id)"></i>
-                    <i class="el-icon-delete" @click="delArticleOne(item.id)"></i>
-                </td>
-            </tr>
-        </table>
-    </div>
-
-    <!-- 页脚 -->
-    <div class="pagination-box">
-        <el-pagination
-        @size-change="handleSizeChange"
-        @current-change="handleCurrentChange"
-        :current-page="pageNum"
-        :page-sizes="[1, 5, 10, 80]"
-        :page-size="pageSize"
-        layout="total, sizes, prev, pager, next, jumper"
-        :total="counts">
-        </el-pagination>
-    </div>
-    </div>
+  </table-list>
 </template>
 
 <script>
+import tableList from '@/components/admin/tableList.vue'
 import { format } from "@/common/js/funMethod.js";
 import {
   getArticleList,
   delMoreArticles,
-  delOneArticle,
-  searchArticlesByTitleOrClass
+  delOneArticle
 } from "@/api/admin";
 
 export default {
@@ -68,31 +52,35 @@ export default {
       pageSize: 10,
       counts: 0,
       delIds: [],
-      searchStr: ""
+      searchStr: "",
+      flag: false
     };
   },
+  components:{
+    'table-list': tableList
+  },
   created: function() {
-    this.getArticleList();
+    this.getArticleList({});
   },
   methods: {
     handleSizeChange(val) {
       this.pageSize = val;
-      this.searchAerticles();
+      this.getArticleList({});
     },
     handleCurrentChange(val) {
       this.pageNum = val;
-      console.log(3333)
-      this.searchAerticles();
+      this.getArticleList({});
     },
     // 获取文章列表
-    getArticleList: function() {
-      var that = this;
-
+    getArticleList: function(msg) {
+      this.searchStr = msg.searchStr ? msg.searchStr : ''
+      var btn = msg.isBtnEvent ? msg.isBtnEvent : false
+      var that = this
       var data = {
-        pageNum: that.pageNum,
-        pageSize: that.pageSize
+        pageNum: btn ? 1 : that.pageNum,
+        pageSize: that.pageSize,
+        searchStr: that.searchStr
       };
-
       getArticleList(data)
         .then(response => {
           if (response.data.code == 200) {
@@ -101,6 +89,8 @@ export default {
             });
             that.articlesList = response.data.list;
             that.counts = response.data.counts;
+            that.flag = true
+            that.$refs.tableList.changeCounts(that.counts)
           }
         })
         .catch(error => {
@@ -155,29 +145,6 @@ export default {
             that.$router.go(0);
           } else {
             alert(response.data.msg);
-          }
-        })
-        .catch(error => {
-          console.log(error);
-        });
-    },
-    // 查询
-    searchAerticles: function() {
-      var that = this;
-      var data = {
-        pageNum: this.pageNum,
-        pageSize: this.pageSize,
-        searchStr: this.searchStr
-      };
-      searchArticlesByTitleOrClass(data)
-        .then(response => {
-          console.log (response)
-          if (response.data.code == 200) {
-            response.data.list.forEach(function(i) {
-              i.createTime = format(i.createTime);
-            });
-            that.articlesList = response.data.list;
-            that.counts = response.data.counts;
           }
         })
         .catch(error => {

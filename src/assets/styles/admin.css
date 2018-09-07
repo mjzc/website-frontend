@@ -76,10 +76,10 @@ html, body, #app, .admin-page {
           font-weight: bold;
           font-size: 16px !important; }
       .middle-content .left-menu .nav-class .second-level {
-        margin-left: 1.4rem; }
+        margin-left: 2.4rem; }
         .middle-content .left-menu .nav-class .second-level li {
           margin: 0 !important;
-          padding: 0.5rem 0 0 !important; }
+          padding: 0.5rem 0 0.8rem !important; }
   .middle-content .right-menu {
     width: 100%;
     min-height: 100%;

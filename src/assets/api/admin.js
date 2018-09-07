@@ -79,14 +79,6 @@ export function getAllArticlesClass() {
         method: 'GET',
     })
 }
-// 通过文章标题和分类查询文章列表
-export function searchArticlesByTitleOrClass (data) {
-    return fetch({
-        url: apiPrefix + 'web_searchArticles',
-        method: 'POST',
-        data: qs.stringify(data)
-    })
-}
 // 查询文章的内容 
 export function getArticleById (data) {
     return fetch({
@@ -137,14 +129,6 @@ export function getAllSoup (data) {
 export function delSoupByids (data) {
     return fetch({
         url: apiPrefix + 'web_delSoupByIds',
-        method: 'POST',
-        data: qs.stringify(data)
-    })
-}
-// 根据标题查询鸡汤
-export function searchSoupByTitle (data) {
-    return fetch({
-        url: apiPrefix + 'web_searchSoup',
         method: 'POST',
         data: qs.stringify(data)
     })
