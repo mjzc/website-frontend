@@ -4,7 +4,7 @@
             <div class="bg-img-content">
               <label for="">全屏背景：</label>
               <div class="bg-img-box" :style="{'background-image' : 'url('+ uploadImgUrl +')'}">
-                <img v-show="isShowAdd" style="padding-top: 25px;" src="../../images/add-img1.png" alt="">
+                <img v-show="isShowAdd" style="padding-top: 25px;" src="../../../images/add-img1.png" alt="">
                 <input class="upload-input" type="file" @change="chooseImg">
               </div>
             </div>

@@ -2,10 +2,10 @@
   <table-list ref="tableList" v-if="flag" :pageNum="pageNum"
               :pageSize="pageSize"
               :counts="counts"
-              placehoder="标题"
+              placehoder="歌手"
               @changePageNum="handleCurrentChange"
               @changePageSize="handleSizeChange"
-              @search="getSoupList"
+              @search="getSingerList"
               @add="$router.push('add_singer')"
               @del="delSoupCounts">
     <div slot="tableContainer">
@@ -13,17 +13,17 @@
         <tr class="title">
             <th style="width:10%;"><input @click="checkAll" name="checkAll" type="checkbox"></th>
             <th style="width:10%;">序号</th>
-            <th style="width:30%;">标题</th>
+            <th style="width:30%;">歌手</th>
             <th style="width:20%;">更新日期</th>
             <th style="width:15%;">操作</th>
         </tr>
-        <tr v-for="(item,index) in soupList" :key="item.id">
+        <tr v-for="(item,index) in list" :key="item.id">
             <td style="width:10%;"><input type="checkbox" name="articlebox" :id="item.id"></td>
             <td style="width:10%;">{{ index + 1 }}</td>
-            <td style="width:30%;">{{ item.title }}</td>
+            <td style="width:30%;">{{ item.name }}</td>
             <td style="width:20%;">{{ item.createTime }}</td>
             <td style="width:15%;" class="do-something">
-                <i class="el-icon-edit" @click="$router.push('edit_soup?id='+item.id)"></i>
+                <i class="el-icon-edit" @click="$router.push('edit_singer?id='+item.id)"></i>
                 <i class="el-icon-delete" @click="delSoupOne(item.id)"></i>
             </td>
         </tr>
@@ -34,13 +34,13 @@
 <script>
 import { format } from "@/common/js/funMethod.js"
 import tableList from '@/components/admin/tableList.vue'
-import { getAllSoup, delSoupByids } from "@/api/admin";
+import { getSingerList, delSingers } from "@/api/admin";
 
 export default {
   name: "soupList",
   data: function() {
     return {
-      soupList: [],
+      list: [],
       pageNum: 1,
       pageSize: 10,
       counts: 0,
@@ -53,19 +53,19 @@ export default {
     'table-list': tableList
   },
   created: function() {
-    this.getSoupList({})
+    this.getSingerList({})
   },
   methods: {
     handleSizeChange(val) {
       this.pageSize = val
-      this.getSoupList({})
+      this.getSingerList({})
     },
     handleCurrentChange(val) {
       this.pageNum = val
-      this.getSoupList({})
+      this.getSingerList({})
     },
     // 获取列表
-    getSoupList: function(msg) {
+    getSingerList: function(msg) {
       this.searchStr = msg.searchStr ? msg.searchStr : ''
       var btn = msg.isBtnEvent ? msg.isBtnEvent : false
       var that = this
@@ -74,17 +74,18 @@ export default {
         pageSize: that.pageSize,
         searchStr: that.searchStr
       };
-
-      getAllSoup(data)
+      getSingerList(data)
         .then(response => {
           if (response.data.code == 200) {
             response.data.list.forEach(function (i) {
               i.createTime = format(i.createTime)
             })
-            that.soupList = response.data.list;
+            that.list = response.data.list;
             that.counts = response.data.counts;
             that.flag = true
-            that.$refs.tableList.changeCounts(that.counts)
+            if (that.$refs.tableList) {
+              that.$refs.tableList.changeCounts(that.counts)
+            }
           }
         })
         .catch(error => {
@@ -113,7 +114,7 @@ export default {
       }
 
       var data = { ids: this.delIds };
-      delSoupByids(data)
+      delSingers(data)
         .then(response => {
           if (response.data.code == 200) {
             alert("success");
@@ -132,7 +133,7 @@ export default {
       var delId = new Array();
       delId.push(id);
       var data = {ids: delId};
-      delSoupByids(data)
+      delSingers(data)
         .then(response => {
           if (response.data.code == 200) {
             alert("success");

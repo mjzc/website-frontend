@@ -84,7 +84,9 @@ export default {
             that.soupList = response.data.list;
             that.counts = response.data.counts;
             that.flag = true
-            that.$refs.tableList.changeCounts(that.counts)
+            if (that.$refs.tableList) {
+              that.$refs.tableList.changeCounts(that.counts)
+            }
           }
         })
         .catch(error => {

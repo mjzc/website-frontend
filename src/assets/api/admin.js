@@ -149,3 +149,51 @@ export function editSoupById (data) {
         data: qs.stringify(data)
     })
 }
+
+
+
+
+
+
+/********* 歌手 *****/
+
+// 添加歌手接口
+export function addSingerAPI (data) {
+    return fetch({
+        url: apiPrefix + 'add_singer',
+        method: 'POST',
+        data: qs.stringify(data)
+    })
+}
+// 获取歌手列表
+export function getSingerList (data) {
+    return fetch({
+        url: apiPrefix + 'get_singerlist',
+        method: 'POST',
+        data: qs.stringify(data)
+    })
+}
+// 删除歌手
+export function delSingers (data) {
+    return fetch({
+        url: apiPrefix + 'del_singer_byids',
+        method: 'POST',
+        data: qs.stringify(data)
+    })
+}
+// 根据id获取歌手内容
+export function getSingerByIdAPI (data) {
+    return fetch({
+        url: apiPrefix + 'get_singerById',
+        method: 'POST',
+        data: qs.stringify(data)
+    })
+}
+// 修改歌手根据id
+export function editSingerById (data) {
+    return fetch({
+        url: apiPrefix + 'edit_singerByid',
+        method: 'POST',
+        data: qs.stringify(data)
+    })
+}

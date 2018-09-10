@@ -20,7 +20,7 @@ import addSinger from '@/page/admin/singer/addSinger'
 import editSinger from '@/page/admin/singer/editSinger'
 
 /******      动态管理      ******/
-import addSoup from '@/page/admin/soup/soupList'
+import addSoup from '@/page/admin/soup/addSoup'
 import soupManage from '@/page/admin/soup/soupList'
 import editSoup from '@/page/admin/soup/editSoup'
 
