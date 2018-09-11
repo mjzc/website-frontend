@@ -77,7 +77,6 @@ export default {
       var data = {
         id: this.id,
         name: this.name,
-        content: this.soupContent,
         img: this.uploadImgUrl
       };
       editSingerById(data)

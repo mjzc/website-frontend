@@ -152,9 +152,6 @@ export function editSoupById (data) {
 
 
 
-
-
-
 /********* 歌手 *****/
 
 // 添加歌手接口
@@ -193,6 +190,31 @@ export function getSingerByIdAPI (data) {
 export function editSingerById (data) {
     return fetch({
         url: apiPrefix + 'edit_singerByid',
+        method: 'POST',
+        data: qs.stringify(data)
+    })
+}
+// 获取歌手
+export function _getSingers () {
+    return fetch({
+        url: apiPrefix + 'get_allSinger',
+        method: 'GET'
+    })
+}
+
+// 上传音乐mp3
+export function _uploadMusic (data) {
+    return fetch({
+        url: apiPrefix + 'upload_music',
+        method: 'POST',
+        data:data,
+        headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+    })
+}
+// 上传歌曲
+export function _sumbitSong (data) {
+    return fetch({
+        url: apiPrefix + 'sumbit_music_content',
         method: 'POST',
         data: qs.stringify(data)
     })
