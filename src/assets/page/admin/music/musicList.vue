@@ -5,26 +5,28 @@
               placehoder="标题"
               @changePageNum="handleCurrentChange"
               @changePageSize="handleSizeChange"
-              @search="getSoupList"
+              @search="getSongList"
               @add="$router.push('add_music')"
-              @del="delSoupCounts">
+              @del="delSongCounts">
     <div slot="tableContainer">
       <table>
         <tr class="title">
             <th style="width:10%;"><input @click="checkAll" name="checkAll" type="checkbox"></th>
             <th style="width:10%;">序号</th>
-            <th style="width:30%;">标题</th>
+            <th style="width:15%;">歌名</th>
+            <th style="width:15%;">歌手</th>
             <th style="width:20%;">更新日期</th>
             <th style="width:15%;">操作</th>
         </tr>
         <tr v-for="(item,index) in soupList" :key="item.id">
             <td style="width:10%;"><input type="checkbox" name="articlebox" :id="item.id"></td>
             <td style="width:10%;">{{ index + 1 }}</td>
-            <td style="width:30%;">{{ item.title }}</td>
+            <td style="width:15%;">{{ item.songName }}</td>
+            <td style="width:15%;">{{ item.name }}</td>
             <td style="width:20%;">{{ item.createTime }}</td>
             <td style="width:15%;" class="do-something">
-                <i class="el-icon-edit" @click="$router.push('edit_soup?id='+item.id)"></i>
-                <i class="el-icon-delete" @click="delSoupOne(item.id)"></i>
+                <i class="el-icon-edit" @click="$router.push('edit_music?id='+item.id)"></i>
+                <i class="el-icon-delete" @click="delSongOne(item.id)"></i>
             </td>
         </tr>
         </table>
@@ -34,7 +36,7 @@
 <script>
 import { format } from "@/common/js/funMethod.js"
 import tableList from '@/components/admin/tableList.vue'
-import { getAllSoup, delSoupByids } from "@/api/admin";
+import { _getSongList, delSong } from "@/api/admin";
 
 export default {
   name: "soupList",
@@ -53,19 +55,19 @@ export default {
     'table-list': tableList
   },
   created: function() {
-    this.getSoupList({})
+    this.getSongList({})
   },
   methods: {
     handleSizeChange(val) {
       this.pageSize = val
-      this.getSoupList({})
+      this.getSongList({})
     },
     handleCurrentChange(val) {
       this.pageNum = val
-      this.getSoupList({})
+      this.getSongList({})
     },
     // 获取列表
-    getSoupList: function(msg) {
+    getSongList: function(msg) {
       this.searchStr = msg.searchStr ? msg.searchStr : ''
       var btn = msg.isBtnEvent ? msg.isBtnEvent : false
       var that = this
@@ -75,7 +77,7 @@ export default {
         searchStr: that.searchStr
       };
 
-      getAllSoup(data)
+      _getSongList(data)
         .then(response => {
           if (response.data.code == 200) {
             response.data.list.forEach(function (i) {
@@ -84,7 +86,9 @@ export default {
             that.soupList = response.data.list;
             that.counts = response.data.counts;
             that.flag = true
-            that.$refs.tableList.changeCounts(that.counts)
+            if (that.$refs.tableList) {
+              that.$refs.tableList.changeCounts(that.counts)
+            }
           }
         })
         .catch(error => {
@@ -102,7 +106,8 @@ export default {
       }
     },
     // 批量删除文章
-    delSoupCounts: function() {
+    delSongCounts: function() {
+      console.log(111111)
       var that = this;
       $('[name="articlebox"]:checked').each((n, i) => {
         this.delIds.push(i.id);
@@ -113,11 +118,11 @@ export default {
       }
 
       var data = { ids: this.delIds };
-      delSoupByids(data)
+      delSong(data)
         .then(response => {
           if (response.data.code == 200) {
             alert("success");
-            that.$router.go(0)
+            // that.$router.go(0)
           } else {
             alert(response.data.msg);
           }
@@ -127,12 +132,12 @@ export default {
         });
     },
     // 单条删除文章
-    delSoupOne: function(id) {
+    delSongOne: function(id) {
       var that = this
       var delId = new Array();
       delId.push(id);
       var data = {ids: delId};
-      delSoupByids(data)
+      delSong(data)
         .then(response => {
           if (response.data.code == 200) {
             alert("success");

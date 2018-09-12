@@ -219,3 +219,35 @@ export function _sumbitSong (data) {
         data: qs.stringify(data)
     })
 }
+// 获取歌曲列表
+export function _getSongList (data) {
+    return fetch({
+        url: apiPrefix + 'get_songlist',
+        method: 'POST',
+        data: qs.stringify(data)
+    })
+}
+// 删除音乐
+export function delSong (data) {
+    return fetch({
+        url: apiPrefix + 'del_songByIds',
+        method: 'POST',
+        data: qs.stringify(data)
+    })
+}
+// 根据id获取歌曲的详情
+export function getSongDetailById (data) {
+    return fetch({
+        url: apiPrefix + 'web_getSongDetail',
+        method: 'POST',
+        data: qs.stringify(data)
+    })
+}
+// 修改歌曲详情
+export function editSongById (data) {
+    return fetch({
+        url: apiPrefix + 'edit_song_detail',
+        method: 'POST',
+        data: qs.stringify(data)
+    })
+}

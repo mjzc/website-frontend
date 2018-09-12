@@ -1,7 +1,6 @@
 
 <template>
   <div>
-    <form action="dasds">
      <div class="text-content">
         <div class="mar-20">
           <label for="">歌名：</label>
@@ -51,15 +50,13 @@
         </div>
     </div>
     <div class="group-btn" style="text-align: right;">
-        <button class="refresh-btn" type="sumbit" @click="sumbitSinger">保存</button>
+        <button class="refresh-btn" @click="sumbitSong">保存</button>
     </div> 
-    </form>
   </div>
 </template>
 
-
 <script>
-import { addSingerAPI, _getSingers, _uploadMusic } from "@/api/admin";
+import { _sumbitSong, _getSingers, _uploadMusic } from "@/api/admin";
 
 export default {
   name: "addSinger",
@@ -126,7 +123,7 @@ export default {
       })
     },
     // 提交
-    sumbitSinger: function() {
+    sumbitSong: function() {
       var that = this;
       if (this.singer_name == "") {
         alert("请输入名称");
@@ -136,17 +133,17 @@ export default {
         return;
       } 
       var data = {
-        ame: that.name,
+        name: that.name,
         lyric: that.lyrice,
         singer_id: that.singerId,
         music_url: that.uploadMusicUrl,
-        img_url: uploadImgUrl
+        img_url: that.uploadImgUrl
       };
       _sumbitSong(data)
         .then(response => {
           if (response.data.code == 200) {
             alert("添加成功");
-            that.$router.push("/web_admin/music_manage");
+            // that.$router.push("/web_admin/music_manage");
           } else {
             alert(response.data.msg);
           }
@@ -158,6 +155,11 @@ export default {
   
     handleSuccess (response, file, fileList) {
       console.log(response)
+      if (response.code == 200) {
+        this.uploadMusicUrl = response.url
+      } else {
+        alert(response.msg)
+      }
     },
     handleRemove(file, fileList) {
       console.log(file, fileList);
