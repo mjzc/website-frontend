@@ -1,7 +1,8 @@
 
-import index from '../../page/mobile/index.vue'
-import blog from '../../page/mobile/blog.vue'
-import music from '../../page/mobile/music.vue'
+import index from '@/page/mobile/index.vue'
+import blog from '@/page/mobile/blog.vue'
+import music from '@/page/mobile/music.vue'
+import resume from '@/page/mobile/resume.vue'
 
 const mobileRouter = [
     {
@@ -15,6 +16,10 @@ const mobileRouter = [
     {
         path: '/web/music',
         component: music
+    },
+    {
+        path: '/resume',
+        component: resume
     }
 ]
 export default mobileRouter

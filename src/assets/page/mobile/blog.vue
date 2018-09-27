@@ -1,5 +1,6 @@
  <template>
   <div>
+    <nav-head></nav-head>
     <div class="bg bg-blur"></div>
     <div class="content-front">
         <!-- 适配导航栏 -->
@@ -66,6 +67,7 @@
 </template>
 
 <script>
+import navHead from '../../components/mobile/navHead.vue'
 import {
   getAuthorInfoById,
   getAllArticlesClass,
@@ -86,6 +88,9 @@ export default {
       responseMenu: false,
       className: ""
     };
+  },
+  components: {
+    'nav-head': navHead
   },
   created: function() {
     this.id = this.$store.state.id;
@@ -144,6 +149,7 @@ export default {
 <style>
 @import url('https://cdn.bootcss.com/normalize/7.0.0/normalize.min.css');
 @import url('https://cdn.bootcss.com/element-ui/2.0.11/theme-chalk/index.css');
+@import url("../../styles/mobile/index.css");
 @import url("../../styles/mobile/article.css");
 .no-content {
     border-radius: 10px;

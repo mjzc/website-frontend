@@ -1,5 +1,6 @@
 <template>
   <div class="music-page">
+    <nav-head></nav-head>
     <div class="music-page-bg">
       <div class="music-mask"></div>
     </div>
@@ -11,82 +12,30 @@
       <div class="top-nav">
         <span>JIA MUSIC</span>
         <div class="search-box">
-          <input class="search-input" type="text" placeholder="搜索歌名 歌手">
+          <input class="search-input" v-model="searchStr" type="text" placeholder="搜索歌名 歌手">
           <span>搜索</span>
         </div>
       </div>
         <!-- 左边 -->
         <div class="music-list-box">
+          <div v-show="showLoading" class="loading">
+            <i class="el-icon-loading"></i>
+            <p>加载中</p>
+          </div>
           <div class="nav-box">
-            <span style="border-radius: 4px 0 0 4px; border-right: 0;">所有专辑</span>
-            <span class="active" style="border-radius: 0 4px 4px 0; border-left: 0;">所有音乐</span>
+            <span :class="selectType === 0 ? 'active' : ''" style="border-radius: 4px 0 0 4px; border-right: 0;">本地音乐</span>
+            <span :class="selectType === 1 ? 'active' : ''" style="border-radius: 0 4px 4px 0; border-left: 0;">线上音乐</span>
           </div>
           <!-- 所有音乐列表 -->
-          <div class="music-list">
+          <div id="musicListBox" class="music-list" v-show="selectType === 0 && mySongList.length > 0">
             <ul>
-              <li class="active">
+              <li @click="selectMusic(mySongList,index)" class="active" v-for="(item, index) in mySongList" :key="index">
                 <i class="el-icon-caret-right icon"></i>
                 <div class="song-box">
                   <i class="el-icon-download"></i>
-                  <span>残酷月光</span>
+                  <span>{{ item.songName }}</span>
                   --
-                  <span>林宥嘉</span>
-                </div>
-              </li>
-              <li class="">
-                <div class="song-box">
-                  <i class="el-icon-download icon"></i>
-                  <span>残酷月光</span>
-                  --
-                  <span>林宥嘉</span>
-                </div>
-              </li>
-              <li class="">
-                <div class="song-box">
-                  <i class="el-icon-download icon"></i>
-                  <span>残酷月光</span>
-                  --
-                  <span>林宥嘉</span>
-                </div>
-              </li>
-              <li class="">
-                <div class="song-box">
-                  <i class="el-icon-download icon"></i>
-                  <span>残酷月光</span>
-                  --
-                  <span>林宥嘉</span>
-                </div>
-              </li>
-              <li class="">
-                <div class="song-box">
-                  <i class="el-icon-download icon"></i>
-                  <span>残酷月光</span>
-                  --
-                  <span>林宥嘉</span>
-                </div>
-              </li>
-              <li class="">
-                <div class="song-box">
-                  <i class="el-icon-download icon"></i>
-                  <span>残酷月光</span>
-                  --
-                  <span>林宥嘉</span>
-                </div>
-              </li>
-              <li class="">
-                <div class="song-box">
-                  <i class="el-icon-download icon"></i>
-                  <span>残酷月光</span>
-                  --
-                  <span>林宥嘉</span>
-                </div>
-              </li>
-              <li class="">
-                <div class="song-box">
-                  <i class="el-icon-download icon"></i>
-                  <span>残酷月光</span>
-                  --
-                  <span>林宥嘉</span>
+                  <span>{{ item.name }}</span>
                 </div>
               </li>
             </ul>
@@ -110,15 +59,6 @@
               <li>而我很好 只缺了些烦恼</li>
               <li>也曾想过 若再遇到</li>
               <li>礼貌着微笑说你好</li>
-              <li>回忆就像电话偶尔打扰</li>
-              <li>它说过去 是善意的玩笑</li>
-              <li>我仰起头 不让泪往下掉</li>
-              <li>如果各自安好</li>
-              <li>就应该放掉</li>
-              <li>我终于可以不再爱你了</li>
-              <li>我终于可以不再想你了</li>
-              <li>日子填满了 心却空空的</li>
-              <li>我知道是我不好</li>
             </ul>
           </div>
           <div class="bottom-box">
@@ -138,18 +78,91 @@
             </div>
           </div>
         </div>
+        <audio :src="currentMusic"></audio>
     </div>
   </div>
 </template>
 
 <script>
-export default {
+import navHead from '../../components/mobile/navHead.vue'
+import { _getSongList } from '@/api/admin'
+import store from '@/store'
+import $ from 'jquery'
 
+export default {
+  data () {
+    return {
+      showLoading: true,
+      selectType: 0,
+      searchStr: '',
+      pageNum: 1,
+      pageSize: 16,
+      mySongList: [],
+      currentMusic: ''
+    }
+  },
+  components: {
+    'nav-head': navHead
+  },
+  created () {
+    this.getMyMusicList()
+  },
+  methods: {
+    // 选择音乐
+    selectMusic (list, index) {
+      store.dispatch('setPlayMusicList', list, index).then(() => {
+      })
+    },
+    // 滑到底部
+    scrollBottom () {
+      var that = this
+     $("#musicListBox").on('scroll',function(){
+       clearTimeout(timer);
+         var $this =$(this),
+         viewH =$(this).height(),//可见高度
+         contentH =$(this).get(0).scrollHeight,//内容高度
+         scrollTop =$(this).scrollTop();//滚动高度
+        if(contentH - viewH - scrollTop <= 100) { //到达底部100px时,加载新内容
+          that.showLoading = true
+          var timer = setTimeout(() => {
+            that.pageNum++
+            that.getMyMusicList()
+          }, 1000)
+        }
+     })
+    },
+    // 获取音乐列表
+    getMyMusicList () {
+      var data = {
+        searchStr: this.searchStr,
+        pageNum: this.pageNum,
+        pageSize: this.pageSize
+      }
+      var that = this
+      _getSongList(data).then(response => {
+        if (response.data.code == 200) {
+          if (response.data.list.length > 0) {
+            var list = that.mySongList.concat(response.data.list)
+            that.mySongList = list
+            that.showLoading = false
+            setTimeout(() => {
+              if ($('#musicListBox')) {
+                that.scrollBottom()
+              }
+            }, 200);
+          }
+        }
+      }).catch(error => {
+        console.log(error)
+      })
+    }
+  }
 }
 </script>
 
 <style>
 @import url("https://cdn.bootcss.com/normalize/7.0.0/normalize.min.css");
 @import url("https://cdn.bootcss.com/element-ui/2.0.11/theme-chalk/index.css");
+@import url("../../styles/mobile/index.css");
 @import url("../../styles/mobile/music.css");
 </style>

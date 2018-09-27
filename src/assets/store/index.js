@@ -10,7 +10,8 @@ const store = new Vuex.Store({
         userName: '',
         token: window.localStorage.getItem('jwt'),
         responsiveMenuIsShow: false,
-        navClassId: 1
+        navClassId: 1,
+        playerList: []
     },
     getters: {
         getToken: (state) => {
@@ -31,6 +32,9 @@ const store = new Vuex.Store({
         },
         navStyleSet({ commit }) {
             commit('SET_NAVCLASSID')
+        },
+        setPlayMusicList({commit}, list, index) {
+            commit('SET_PLAY_LIST', list, index)
         }
     },
     mutations: {
@@ -56,6 +60,9 @@ const store = new Vuex.Store({
             } else if (path == '/web_admin/soup_manage' || path == '/web_admin/add_soup' || path == '/web_admin/edit_soup') {
                 store.state.navClassId = 5
             }
+        },
+        SET_PLAY_LIST (state, list, index) {
+            state.playerList = list
         }
     }
 })
