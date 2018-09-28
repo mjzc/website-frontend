@@ -5,7 +5,9 @@
   font-family: 'Space-Mono-Regular';
   src: url("../../fonts/Space-Mono-Regular.ttf"); }
 #app, .resume-page {
-  height: 100%; }
+  height: 100%;
+  width: 100%;
+  overflow: hidden; }
 
 .block-name {
   font-size: 35px;
@@ -19,71 +21,64 @@
   display: -webkit-flex;
   align-items: center;
   width: 100%;
-  height: 100%; }
+  height: 721px; }
 
 .header-container {
   background-image: url("../../images/resume/cover-bg.jpg");
   width: 100%;
-  height: 100%;
+  height: 721px;
   position: relative; }
-  .header-container .overlay {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: rgba(255, 144, 0, 0.9); }
-    .header-container .overlay .contain-box {
-      width: 60%;
-      margin: 0 auto;
-      text-align: center;
-      padding: 130px 0 10px; }
-      .header-container .overlay .contain-box .head-img {
-        width: 200px;
-        height: 200px;
-        border-radius: 50%;
-        background-image: url("../../images/resume/head-img.jpg");
-        background-size: cover;
-        margin: 0 auto; }
-      .header-container .overlay .contain-box .header-name-box {
-        font-size: 50px;
-        color: #fff;
-        transform: rotate(-5deg);
-        -webkit-transform: rotate(-5deg);
-        margin: 20px;
-        padding: 0; }
-        .header-container .overlay .contain-box .header-name-box .name {
-          font-family: 'KaushanScript-Regular';
-          position: relative;
-          padding: 0 30px 0 20px; }
-        .header-container .overlay .contain-box .header-name-box .name::before {
-          position: absolute;
-          top: 40px;
-          left: 0;
-          width: 30px;
-          height: 4px;
-          content: '';
-          background: #fff;
-          margin-left: -30px; }
-        .header-container .overlay .contain-box .header-name-box .name::after {
-          position: absolute;
-          top: 40px;
-          right: 0;
-          width: 30px;
-          height: 4px;
-          content: '';
-          background: #fff;
-          margin-right: -30px; }
-      .header-container .overlay .contain-box .motto {
-        font-family: 'Space-Mono-Regular';
-        color: #fff;
-        font-size: 16px; }
-      .header-container .overlay .contain-box .icon-box {
-        margin-top: 25px; }
-        .header-container .overlay .contain-box .icon-box img {
-          padding-right: 20px; }
-        .header-container .overlay .contain-box .icon-box a:last-child img {
-          padding-right: 0; }
+  .header-container .contain-box {
+    width: 60%;
+    margin: 0 auto;
+    text-align: center;
+    padding: 130px 0 10px; }
+    .header-container .contain-box .head-img {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      background-image: url("../../images/resume/head-img.jpg");
+      background-size: cover;
+      margin: 0 auto; }
+    .header-container .contain-box .header-name-box {
+      font-size: 50px;
+      color: #fff;
+      transform: rotate(-5deg);
+      -webkit-transform: rotate(-5deg);
+      margin: 20px;
+      padding: 0; }
+      .header-container .contain-box .header-name-box .name {
+        font-family: 'KaushanScript-Regular';
+        position: relative;
+        padding: 0 30px 0 20px; }
+      .header-container .contain-box .header-name-box .name::before {
+        position: absolute;
+        top: 40px;
+        left: 0;
+        width: 30px;
+        height: 4px;
+        content: '';
+        background: #fff;
+        margin-left: -30px; }
+      .header-container .contain-box .header-name-box .name::after {
+        position: absolute;
+        top: 40px;
+        right: 0;
+        width: 30px;
+        height: 4px;
+        content: '';
+        background: #fff;
+        margin-right: -30px; }
+    .header-container .contain-box .motto {
+      font-family: 'Space-Mono-Regular';
+      color: #fff;
+      font-size: 16px; }
+    .header-container .contain-box .icon-box {
+      margin-top: 25px; }
+      .header-container .contain-box .icon-box img {
+        padding-right: 20px; }
+      .header-container .contain-box .icon-box a:last-child img {
+        padding-right: 0; }
 
 .person-box {
   display: flex;
@@ -116,25 +111,27 @@
     line-height: 30px;
     letter-spacing: 1px; }
 
-.person-skill-container .skills-box {
-  width: 90%;
-  margin: 0 auto;
-  text-align: center; }
-  .person-skill-container .skills-box .skill-route {
-    position: relative;
-    width: 220px;
-    height: 220px;
-    float: left; }
-    .person-skill-container .skills-box .skill-route span {
-      position: absolute;
-      top: 50%;
-      left: 0;
-      right: 0;
-      margin-top: -1.5em;
-      text-align: center; }
-  .person-skill-container .skills-box circle {
-    -webkit-transition: stroke-dasharray .25s;
-    transition: stroke-dasharray .25s; }
+.person-skill-container {
+  background-image: url("../../images/resume/cover-bg.jpg"); }
+  .person-skill-container .skills-box {
+    width: 90%;
+    margin: 0 auto;
+    text-align: center; }
+    .person-skill-container .skills-box .skill-route {
+      position: relative;
+      width: 220px;
+      height: 220px;
+      float: left; }
+      .person-skill-container .skills-box .skill-route span {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        right: 0;
+        margin-top: -1.5em;
+        text-align: center; }
+    .person-skill-container .skills-box circle {
+      -webkit-transition: stroke-dasharray .25s;
+      transition: stroke-dasharray .25s; }
 
 .work-experience .container {
   width: 70%;
@@ -183,5 +180,34 @@
         font-size: 18px;
         font-weight: bold;
         color: #b96a05; }
+
+.el-carousel__container {
+  position: relative;
+  height: 550px;
+  text-align: center; }
+
+.experience-list {
+  width: 90%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center; }
+
+.item-box {
+  margin-right: 10px;
+  border: 1px solid #ff9003;
+  padding: 5px; }
+
+.img-box {
+  background-size: cover;
+  width: 240px;
+  height: 427px; }
+
+.overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(255, 144, 0, 0.9); }
 
 /*# sourceMappingURL=resume.css.map */

@@ -1,5 +1,6 @@
 <template>
-    <div class="resume-page">
+  <swiper :options="swiperOption" class="container" ref="mySwiper">
+   <swiper-slide class="slide">
         <!-- 顶部 -->
         <div class="header-container">
             <div class="overlay">
@@ -22,51 +23,55 @@
                 </div>
             </div>
         </div>
+    </swiper-slide>
+    <swiper-slide class="slide">
         <!-- 个人信息部分 -->
-        <div class="block-box person-info-container">
-            <div class="">
-                <p class="block-name">个人信息</p>
-                <div class="person-box">
-                    <div class="information-box">
-                        <ul>
-                            <li>
-                                <span class="th-name">Name:</span>
-                                <span class="content">李漫嘉</span>
-                            </li>
-                            <li>
-                                <span class="th-name">Email:</span>
-                                <span class="content">853569768@qq.com</span>
-                            </li>
-                            <li>
-                                <span class="th-name">Website:</span>
-                                <span class="content"><a href="https://mjiacc.cn/">https://mjiacc.cn</a></span>
-                            </li>
-                            <li>
-                                <span class="th-name">Phone:</span>
-                                <span class="content">159157XXXXX</span>
-                            </li>
-                            <li>
-                                <span class="th-name">Birthday:</span>
-                                <span class="content">1996.12.08</span>
-                            </li>
-                            <li>
-                                <span class="th-name">Address:</span>
-                                <span class="content">中国·广东·广州</span>
-                            </li>
-                            
-                        </ul>
-                    </div>
-                    <div class="introduction-box">
-                        <p>
-                            本人熟悉掌握HTML5和CSS3，能够熟练还原设计图，并处理浏览器兼容问题，以及熟悉使用CSS预处理语言Sass，来提升加强CSS，熟悉JavaScript以及精通Vue、Jquery框架，能熟练的使用Vue全家桶，还掌握PHP后台语言和Smyfony框架以及twig模版引擎，对nodeJS以及express开发框架有一定的了解，但不精通，对前端打包工具webpack也有了解，对微信小程序也做过相应的项目，平时空闲的时候也喜欢学习新东西，然后自己做项目巩固一下，前端的工作出于设计与后台的中间领域，起到了承上启下的作用，所以需要懂得东西要多，所以自己每天都在不断的学习，不过更重要的是团队的协作能力了以及沟通能力，希望能将自己会的东西实现的最大的意义。
-                        </p>
+            <div class="block-box person-info-container">
+                <div class="overlay">
+                    <p class="block-name">个人信息</p>
+                    <div class="person-box">
+                        <div class="information-box">
+                            <ul>
+                                <li>
+                                    <span class="th-name">Name:</span>
+                                    <span class="content">李漫嘉</span>
+                                </li>
+                                <li>
+                                    <span class="th-name">Email:</span>
+                                    <span class="content">853569768@qq.com</span>
+                                </li>
+                                <li>
+                                    <span class="th-name">Website:</span>
+                                    <span class="content"><a href="https://mjiacc.cn/">https://mjiacc.cn</a></span>
+                                </li>
+                                <li>
+                                    <span class="th-name">Phone:</span>
+                                    <span class="content">159157XXXXX</span>
+                                </li>
+                                <li>
+                                    <span class="th-name">Birthday:</span>
+                                    <span class="content">1996.12.08</span>
+                                </li>
+                                <li>
+                                    <span class="th-name">Address:</span>
+                                    <span class="content">中国·广东·广州</span>
+                                </li>
+                                
+                            </ul>
+                        </div>
+                        <div class="introduction-box">
+                            <p>
+                                本人熟悉掌握HTML5和CSS3，能够熟练还原设计图，并处理浏览器兼容问题，以及熟悉使用CSS预处理语言Sass，来提升加强CSS，熟悉JavaScript以及精通Vue、Jquery框架，能熟练的使用Vue全家桶，还掌握PHP后台语言和Smyfony框架以及twig模版引擎，对nodeJS以及express开发框架有一定的了解，但不精通，对前端打包工具webpack也有了解，对微信小程序也做过相应的项目，平时空闲的时候也喜欢学习新东西，然后自己做项目巩固一下，前端的工作出于设计与后台的中间领域，起到了承上启下的作用，所以需要懂得东西要多，所以自己每天都在不断的学习，不过更重要的是团队的协作能力了以及沟通能力，希望能将自己会的东西实现的最大的意义。
+                            </p>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
+    </swiper-slide>
+    <swiper-slide class="slide">
         <!-- 个人技能 -->
         <div class="block-box person-skill-container">
-            <div style="width: 100%;">
+            <div style="width: 100%;" class="overlay">
                 <p class="block-name">个人技能</p>
                 <div class="skills-box">
                     <div v-for="(item, index) in skills" :key="index" class="skill-route">
@@ -80,9 +85,11 @@
                 </div>
             </div>
         </div>
+    </swiper-slide>
+    <swiper-slide class="slide">
         <!-- 工作经历 -->
         <div class="block-box work-experience">
-            <div style="width:100%;">
+            <div style="width:100%;" class="overlay">
                 <p class="block-name">工作经历</p>
                 <div class="container">
                     <div class="content">
@@ -112,9 +119,11 @@
                 </div>
             </div>
         </div>
+    </swiper-slide>
+    <swiper-slide class="slide">
         <!-- 项目经验 -->
         <div class="block-box item-experience">
-           <div style="width: 100%;">
+            <div style="width: 100%;" class="overlay">
                 <p class="block-name">项目经验</p>
                 <div class="experience-list">
                     <div class="item-box" v-for="(item, index) in experience" :key="index">
@@ -124,12 +133,14 @@
                         </div>
                     </div>
                 </div>
-           </div>
+            </div>
         </div>
-    </div>
+    </swiper-slide>
+  </swiper>
 </template>
 
 <script>
+import { swiper, swiperSlide } from 'vue-awesome-swiper'
 export default {
   data () {
     return {
@@ -148,49 +159,52 @@ export default {
         {name: 'lsjvip',img: 'src/assets/images/resume/2.jpg'},
         {name: 'pandaMusic',img: 'src/assets/images/resume/1.jpg'},
         {name: 'maisilin',img: 'src/assets/images/resume/5.jpg'}
-      ]
+      ],
+      swiperOption: {
+        direction : 'vertical'
+      }
     }
   },
-  created: function () {
-      var scrollTop = 0
-      var topValue = this.getScrollTop()
-      var that = this
-    setTimeout(() => {
-        window.addEventListener('scroll', function () {
-        scrollTop = that.getScrollTop()
-            if(scrollTop<=topValue){
-                console.log('向上滚动')
-            } else {
-                console.log('向下滚动')
-            }  
-            setTimeout(function(){topValue=scrollTop;},0);      
-    })
-    }, 2000);
+   computed: {
+    swiper() {
+      return this.$refs.mySwiper.swiper
+    }
   },
-  methods: {
-    getScrollTop () {
-        var scrollTop=0;
-        if(document.documentElement&&document.documentElement.scrollTop)
-        {
-            scrollTop=document.documentElement.scrollTop;
-        }
-        else if(document.body)
-        {
-            scrollTop=document.body.scrollTop;
-        }
-        return scrollTop;
+  mounted() {
+      // current swiper instance
+      // 然后你就可以使用当前上下文内的swiper对象去做你想做的事了
+      console.log('this is current swiper instance object', this.swiper)
+      this.swiper.slideTo(2, 1000, false)
     },
+  methods: {
     getStorkDash (value) {
       var percent = value / 100;
 	  var perimeter = Math.PI * 2 * 85;
       return perimeter * percent + " " + perimeter * (1- percent)
     }
+  },
+  components: {
+    swiper,
+    swiperSlide
   }
 }
 </script>
 
 <style>
+@import 'swiper/dist/css/swiper.css';
 @import url('../../styles/mobile/resume.css');
+.slide {
+    height: 720px;
+    width: 100%;
+    text-align: center;
+    overflow: hidden;
+    /* background-color: #ff9003; */
+}
+.container {
+    width: 100%;
+    height: 100%;
+    /* overflow: hidden; */
+}
 .el-carousel__container {
   position: relative;
   height: 550px;
