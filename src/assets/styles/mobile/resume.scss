@@ -6,7 +6,11 @@
     font-family: 'Space-Mono-Regular';
     src: url('../../fonts/Space-Mono-Regular.ttf')
 }
-#app, .resume-page {
+@font-face {
+  font-family: 'HYBeiWeiXieJingW';
+  src: url('../../fonts/HYBeiWeiXieJingW.ttf')
+}
+.adapter-pc .resume-page {
   height: 100%;
   width: 100%;
   overflow: hidden;
@@ -17,6 +21,7 @@
   padding: 0;
   text-align: center;
   width: 100%;
+  font-family: 'HYBeiWeiXieJingW';
 }
 .block-box {
   display: flex;
@@ -103,6 +108,9 @@
   margin: 0 auto;
 }
 .person-info-container {
+  text-align: left;
+  // background-image: url('../../images/resume/8.jpeg');
+  background-size: cover;
   .information-box {
     width: 30%;
     ul {
@@ -115,16 +123,17 @@
         .th-name {
           width: 30%;
           display: inline-block;
+          color: #4d4d4d;
         }
         .content, .content a{
-          color: rgba(0, 0, 0, 0.5) !important;
+          color: #3c3b3b !important;
         }
       }
     }
   }
   .introduction-box {
     width: 60%;
-    color: #4d4d4d;
+    color: #3c3b3b;
     line-height: 20px;
     p {
         margin: 0;
@@ -135,15 +144,16 @@
   }
 }
 .person-skill-container {
-  background-image: url('../../images/resume/cover-bg.jpg');
+  background-color: #f5f5f5;
   .skills-box {
     width: 90%;
     margin: 0 auto;
     text-align: center;
+    overflow: hidden;
     .skill-route {
       position: relative;
-      width: 220px;
-      height: 220px;
+      width: 25%;
+      height: 25%;
       float: left;
       span {
         position: absolute;
@@ -219,6 +229,16 @@
     }
   }
 }
+.slide {
+  height: 720px;
+  width: 100%;
+  text-align: center;
+  overflow: hidden;
+}
+.container {
+  width: 100%;
+  height: 100%;
+}
 .el-carousel__container {
   position: relative;
   height: 550px;
@@ -230,15 +250,54 @@
   display: flex;
   justify-content: center;
 }
+@keyframes maskFade {
+  0% {
+    top:1000px
+  }
+  100% {
+    top: 0px;
+  }
+}
+.item-mask {
+  animation: maskFade 0.5s;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 100;
+  background-color: rgba(0, 0, 0, 0.4);
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  img {
+    width: 120px;
+    height: 120px;
+  }
+}
 .item-box {
+  position: relative;
   margin-right: 10px;
-  border: 1px solid #ff9003;
-  padding: 5px;
+  border: 1px solid #d0d0d0;
+  padding: 10px;
+  border-radius: 10px;
+  -webkit-transition: transform .15s ease-in-out,box-shadow .15s ease-in-out;
+  box-shadow: 0 1px 3px rgba(0,0,0,.02), 0 4px 8px rgba(0,0,0,.02);
+}
+.item-experience {
+  background-color: #f5f5f5;
+}
+.item-box:hover {
+  box-shadow: 0 1px 3px rgba(0,0,0,.02), 0 16px 32px -4px rgba(0,0,0,.17);
+  transform: translateY(-1px);
 }
 .img-box {
+  margin: 0 auto;
   background-size: cover;
   width: 240px;
   height: 427px;
+  box-shadow: 0 1px 3px rgba(0,0,0,.02), 0 4px 8px rgba(0,0,0,.02);
 }
 .overlay {
   position: absolute;
@@ -247,4 +306,242 @@
   left: 0;
   right: 0;
   background: rgba(255, 144, 0, 0.9);
+}
+.overMask {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  display: -webkit-flex;
+  flex-direction: column;
+  background: rgba(0,0,0,0.2);
+  justify-content: center;
+}
+.circle-box:hover {
+  animation: quan 1s;
+}
+@keyframes quan {
+  0% {
+    transform: rotate(0deg)
+  }
+  100% {
+    transform: rotate(360deg)
+  }
+}
+.adapter-mobile {
+  .header-box {
+    background-image: url('../../images/resume/cover-bg.jpg');
+    .mask-cheng {
+      background: rgba(255, 144, 0, 0.9);
+      .contain-box {
+        width: 60%;
+        margin: 0 auto;
+        text-align: center;
+        padding: 50px 0 10px;
+        .head-img {
+          width: 100px;
+          height: 100px;
+          border-radius: 50%;
+          background-image: url(/static/image/head-img.8c862eb.jpg);
+          background-size: cover;
+          margin: 0 auto;
+        }
+        .header-name-box, .motto {
+          color: #fff;
+        }
+        .mine-name {
+          font-size: 24px;
+          font-family: 'KaushanScript-Regular';
+          position: relative;
+          padding: 0 30px 0 20px;
+        }
+        .icon-box {
+          img {
+            width: 20px;
+            height: 20px;
+          }
+        }
+      }
+    }
+  }
+  .mobile-block {
+    text-align: center;
+    padding-top: 30px;
+    font-size: 14px;
+    .title {
+      color: rgba(255, 144, 0, 0.9);
+      padding: 0 20px 10px;
+      font-size: 22px;
+      font-weight: bold;
+      border-bottom: 2px solid #eee;
+    }
+    .introduction-box {
+      width: 80%;
+      margin: 0 auto;
+      color: #3c3b3b;
+      line-height: 20px;
+      p {
+        text-align: left;
+        margin: 0;
+        padding: 0;
+        line-height: 30px;
+        letter-spacing: 1px;
+      }
+    }
+    .information-box {
+      padding: 10px 0;
+      ul {
+        padding: 0;
+        margin: 0;
+        list-style: none;
+        li {
+          padding: 0;
+          margin: 20px 0;
+          .th-name {
+            width: 30%;
+            display: inline-block;
+            color: #4d4d4d;
+            text-align: center;
+          }
+          .content, .content a{
+            color: #3c3b3b !important;
+            width: 30%;
+            text-align: left;
+            display: inline-block;
+          }
+        }
+      }
+    }
+    
+    .experience-container{
+      width: 70%;
+      margin: 0 auto;
+      border-left: 2px solid #e6e6e6;
+      padding: 10px 0;
+      .content {
+        position: relative;
+        .router {
+          width: 20px;
+          height: 20px;
+          border-radius: 10px;
+          position: absolute;
+          left: -12px;
+          background: #fff;
+          border: 2px solid #ff9003;
+          box-sizing: border-box;
+        }
+        .time {
+          position: absolute;
+          left: -114px;
+          width: 100px;
+          top: -10px;
+          overflow: hidden;
+          text-align: right;
+          color: #000;
+          p {
+            margin: 0;
+            padding: 0;
+          }
+          .year {
+            font-size: 16px;
+            font-weight: bold;
+            margin-bottom: 4px;
+            color: #b96a06;
+          }
+        }
+        .text-box {
+          margin: 10px 10px 30px;
+          padding: 5px 10px;
+          color: #4d4d4d;
+          p {
+            margin: 0;
+            padding: 0;
+          }
+          .position {
+            margin: 10px 0;
+            color: #b96a06;
+          }
+          .company {
+            font-size: 15px;
+            font-weight: bold;
+            color: #b96a05;
+          }
+        }
+      }
+    }
+    .skills-container {
+      .skill-box {
+        text-align: left;
+        width: 80%;
+        margin: 10px auto;
+        .skill-name {
+          font-size: 15px;
+          color: #3c3b3b;
+        }
+        .skill-tiao {
+          position: relative;
+          width: 100%;
+          height: 15px;
+          background-color: #e4e4e4;
+          margin: 0 auto;
+          border-radius: 0 10px 10px 0;
+          .skill {
+            position: absolute;
+            top: 0;
+            left: 0;
+            border-radius: 0 10px 10px 0;
+            background-color: rgba(255, 144, 0, 0.9);
+            height: 15px;
+            .num {
+              position: absolute;
+              right: 0;
+              line-height: 15px;
+              color: #fff;
+              left: 0;
+              text-align: center;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.swiper3 {
+  width: 77%;
+  .item-box, .img-box {
+    box-shadow: none !important;
+  }
+}
+// pc mobile适配770
+// 当页面小于960px的时候
+@media screen and (max-width: 960px){
+  .adapter-pc {
+    display: none;
+  }
+  .adapter-mobile {
+    display: block;
+  }
+}
+// 大于960px小于1200px
+// @media screen and (min-width:960px) and (max-width:1200px){
+//   body{
+    
+//   }
+// }
+//大于960px
+@media screen and (min-width:960px){
+  #app, .page{
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+  }
+  .adapter-pc {
+    display: block;
+  }
+  .adapter-mobile {
+    display: none;
+  }
 }
