@@ -10,16 +10,15 @@
                     <router-link to="/web/blog" tag="li" active-class="active">
                         <a href="JavaScript:;">Blog</a>
                     </router-link>
-                    <router-link to="/web/music" tag="li" active-class="active">
+                    <!-- <router-link to="/web/music" tag="li" active-class="active">
                         <a href="JavaScript:;">Music</a>
-                    </router-link>
-
+                    </router-link> -->
                     <router-link to="/resume" tag="li" active-class="active">
                         <a href="JavaScript:;">Resume</a>
                     </router-link>
-                    <router-link to="/web/index" tag="li" active-class="active">
+                    <!-- <router-link to="/web/index" tag="li" active-class="active">
                         <a href="JavaScript:;">About</a>
-                    </router-link>
+                    </router-link> -->
                 </ul>
             </div>
             <div class="right-other">
@@ -40,25 +39,24 @@
         </div>
     </div>
     <!-- 适配隐藏导航栏 -->
-    <div class="responsive-left-nav" v-show="showResponsiveMenu">
+    <div class="responsive-left-nav" v-show="showResponsiveMenu" @click="showResponsiveMenu = false">
         <div class="left-nav-box">
             <ul style="list-style: none;">
-                <li>
-                    <a href="JavaScript:;" :class="{ 'active' : classId == 1}">Home</a>
-                </li>
-                <li>
-                    <a @click="$router.push('/web/blog')">Blog</a>
-                </li>
-                <li>
-                    <a href="JavaScript:;" @click="$router.push('/web/music')">Music</a>
-                </li>
-                <li>
+                <router-link to="/web/index" tag="li" active-class="active">
+                    <a href="JavaScript:;">Home</a>
+                </router-link>
+                <router-link to="/web/blog" tag="li" active-class="active">
+                    <a href="JavaScript:;">Blog</a>
+                </router-link>
+                <!-- <router-link to="/web/music" tag="li" active-class="active">
+                    <a href="JavaScript:;">Music</a>
+                </router-link> -->
+                <router-link to="/resume" tag="li" active-class="active">
                     <a href="JavaScript:;">Resume</a>
-                </li>
-                
-                <li>
+                </router-link>
+                <!-- <router-link to="/web/index" tag="li" active-class="active">
                     <a href="JavaScript:;">About</a>
-                </li>
+                </router-link> -->
             </ul>
         </div>
     </div>

@@ -12,7 +12,7 @@
                     <p style="font-size: 12px;">{{ intro }}</p>
                 </div>
             </div>
-            <i class="el-icon-menu" style="color: #fff;" @click="responsiveIconEvent"></i>
+            <i class="el-icon-more" style="color: #fff;" @click="responsiveIconEvent"></i>
         </div>
 
         <transition name="nav-fade">
@@ -161,7 +161,6 @@ export default {
     line-height: 30px;
     font-size: 14px;
 }
-
 .nav-fade-enter-active {
   transition: all .3s cubic-bezier(.55,0,.1,1);
 }
@@ -170,5 +169,10 @@ export default {
   -webkit-transform: translate(100%, 0);
   transform: translate(100%, 0);
 }
-
+@font-face {
+  font-family: element-icons;
+  src: url('../../fonts/element-icons.woff?t=1472440741') format('woff'), url('../../fonts/element-icons.ttf?t=1472440741') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
 </style>

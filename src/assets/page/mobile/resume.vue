@@ -258,7 +258,8 @@
                         <div @click="isHasLink(item)" class="item-box">
                             <div class="img-box hoverShowdow" :style="{'background-image': 'url('+item.img+')'}"></div>
                             <div class="item-mask">
-                                <img :src="item.fadeImg" alt="">
+                                <img v-show="item.fadeImg != ''" :src="item.fadeImg" alt="">
+                                <p style="color: #fff;font-size: 17px;">扫描二维码或者点击进入查看</p>
                             </div>
                         </div>
                     </swiper-slide>
@@ -290,7 +291,10 @@ export default {
         {name: 'yiqigo',img: 'src/assets/images/resume/3.jpg',fadeImg: 'src/assets/images/resume/eq2.png',link: ''},
         {name: 'lsjvip',img: 'src/assets/images/resume/2.jpg',fadeImg: 'src/assets/images/resume/eq3.jpeg',link: ''},
         {name: 'pandaMusic',img: 'src/assets/images/resume/1.jpg',fadeImg: 'src/assets/images/resume/eq4.jpg',link: 'https://www.mjiacc.cn/mine-music/'},
-        {name: 'maisilin',img: 'src/assets/images/resume/5.jpg',fadeImg: 'src/assets/images/resume/eq1.png',link: ''}
+        {name: 'maisilin',img: 'src/assets/images/resume/5.jpg',fadeImg: 'src/assets/images/resume/eq1.png',link: ''},
+        {name: 'puzzle',img:'src/assets/images/resume/4.jpg',fadeImg: '',link: 'http://pg2r2whem.bkt.clouddn.com/18-10-08/puzzle/index.html'},
+        {naem: 'moneyFly',img:'src/assets/images/resume/6.jpg',fadeImg: '',link: 'http://pg2r2whem.bkt.clouddn.com/18-10-08/money-fly/index.html'},
+        
       ],
       swiperOption: {
         direction : 'vertical'
@@ -318,8 +322,8 @@ export default {
     }
   },
   mounted() {
-      console.log('this is current swiper instance object', this.swiper)
-      this.swiper.slideTo(4, 1000, false)
+    //   console.log('this is current swiper instance object', this.swiper)
+    //   this.swiper.slideTo(4, 1000, false)
     },
   methods: {
     isHasLink (item) {

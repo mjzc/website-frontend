@@ -103,8 +103,8 @@ html, body {
     }
 }
 .index-content-box {
-    position: absolute;
-  width: 60%;
+  position: absolute;
+  width: 100%;
   height: auto;
   margin: auto;
   display: table;
@@ -112,7 +112,7 @@ html, body {
   right:0;
   bottom: 0;
   top: 0;
-    text-align: center;
+  text-align: center;
     .title-box {
         line-height: 40px;
         .title {
@@ -172,9 +172,24 @@ html, body {
     }
 }
 @media screen and (max-width: 760px) {
-    .title-box {
-        .title, .soup-time {
-            display: block;
-        }
-    }
+   
+}
+#app, .indexPage,body,.silder {
+  height: 100%;
+  width: 100%;
+}
+.silder {
+  background-size: cover;
+}
+.end {
+  color: #bbbbbb !important;
+}
+.index-page {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 10;
+  background-size: cover;
 }

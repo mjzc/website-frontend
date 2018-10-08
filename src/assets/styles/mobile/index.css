@@ -91,7 +91,7 @@ html, body {
 
 .index-content-box {
   position: absolute;
-  width: 60%;
+  width: 100%;
   height: auto;
   margin: auto;
   display: table;
@@ -149,8 +149,23 @@ html, body {
 
   .soup-box {
     width: 100% !important; } }
-@media screen and (max-width: 760px) {
-  .title-box .title, .title-box .soup-time {
-    display: block; } }
+#app, .indexPage, body, .silder {
+  height: 100%;
+  width: 100%; }
+
+.silder {
+  background-size: cover; }
+
+.end {
+  color: #bbbbbb !important; }
+
+.index-page {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 10;
+  background-size: cover; }
 
 /*# sourceMappingURL=index.css.map */

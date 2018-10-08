@@ -18,9 +18,15 @@
 
         </div>
       </div>
-      <script id="container" name="content" type="text/plain">
-            文章内容写这里～
-      </script>
+     <!-- markdown -->
+        <div>
+          <p>使用Markdown编辑内容</p>
+          <div class="edit-md-box">
+            <textarea class="md-box" v-model='content'></textarea>
+            <div id="show-content"></div>
+          </div>
+        </div>
+
       <div class="group-btn" style="text-align: right;">
         <button class="refresh-btn" @click="sumbitArticle">发布</button>
       </div>
@@ -28,42 +34,46 @@
 </template> 
 
 <script>
-import "../../../../../static/js/utf8-php/ueditor.config";
-import "../../../../../static/js/utf8-php/ueditor.all.js";
-import "../../../../../static/js/utf8-php/lang/zh-cn/zh-cn.js";
-import "../../../../../static/js/utf8-php/ueditor.parse.js";
 import topHead from "@/components/admin/topHead.vue";
 import leftNav from "@/components/admin/leftNav.vue";
-
+import showdown from 'showdown'
 import { addArticle, getAllArticlesClass } from "@/api/admin";
 
 export default {
   name: "addArticles",
   data() {
     return {
-      ue: "",
       title: "",
-      addHtml: "",
       classId: "",
       classList: [],
-      introductionText: ""
+      introductionText: "",
+      content: '',
+      converter: null,
+      html: ''
     };
+  },
+  watch: {
+    'content':'contentChanged'
+  },
+  mounted() {
+    this.init()
   },
   components: {
     "top-mine-head": topHead,
     "left-mine-nav": leftNav
   },
-  mounted() {
-    this.ue = UE.getEditor("container", {
-      initialFrameWidth: "100%",
-      initialFrameHeight: 350
-    });
-    var lang = this.ue.getOpt("lang"); //默认返回：zh-cn
-  },
   created: function() {
     this.getClass();
   },
   methods: {
+    init:function () {
+      var converter = new showdown.Converter()
+      this.converter = converter
+    },
+    contentChanged(){ 
+        this.html = this.converter.makeHtml(this.content)
+        document.getElementById('show-content').innerHTML = this.html
+    },
     // 获取所有的文章分类
     getClass: function() {
       var that = this;
@@ -80,11 +90,9 @@ export default {
     // 添加文章
     sumbitArticle: function() {
       var that = this;
-      this.ue.ready(function() {
-        that.addHtml = that.ue.getContent();
-      });
+      
       if (
-        this.addHtml == "" ||
+        this.content == "" ||
         this.title == "" ||
         this.introductionText == "" ||
         this.classId == ""
@@ -94,7 +102,7 @@ export default {
       }
       var data = {
         title: that.title,
-        content: that.addHtml,
+        content: that.html,
         classId: that.classId,
         introductionText: that.introductionText
       };
@@ -115,3 +123,22 @@ export default {
 };
 </script> 
 
+<style>
+.edit-md-box {
+  display: flex;
+  justify-content: space-around;
+}
+.md-box{
+  border: 1px solid #eee;
+  flex: 0.5;
+  margin-right: 20px;
+  padding: 10px;
+  min-height: 400px;
+}
+#show-content{
+  border: 1px solid #eee;
+  flex: 0.5;
+  padding: 10px;
+  min-height: 400px;
+}
+</style>
