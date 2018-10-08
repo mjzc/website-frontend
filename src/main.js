@@ -1,5 +1,4 @@
 import Vue from 'vue'
-import $ from 'jquery'
 import App from './App.vue'
 import store from './assets/store/index.js'
 import ElementUI from 'element-ui'
@@ -11,7 +10,7 @@ Vue.use(ElementUI)
 // 路由发生改变
 router.beforeEach((to, from, next) => {
 
-  if (to.path == '/web/index' || to.path == '/web/blog') {
+  if (to.path == '/web/index' || to.path == '/web/blog' || to.path == '/resume') {
     next()
   } 
 
@@ -20,7 +19,6 @@ router.beforeEach((to, from, next) => {
     if (to.path === '/login') {
       next('/web_admin/article_manage')
     } else if (to.path === '/web_admin/edit_article' || to.path === '/web_admin/add_articles') {
-      UE.delEditor('editor')
       next()
     }
     if (to.path === '/web_admin/user_manage') {

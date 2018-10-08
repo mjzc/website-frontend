@@ -26,12 +26,15 @@ import editSoup from '@/page/admin/soup/editSoup'
 
 const adminRouter = [
     {
-        path: '/',
-        component: login,
-        redirect: '/login',
-        children: [
-            { path: 'login', name: '网页后台登录', component: login }
-        ]
+        // path: '/',
+        // component: login,
+        // redirect: '/login',
+        // children: [
+        //     { path: 'login', name: '网页后台登录', component: login }
+        // ]
+        path: 'login',
+        name: '网页后台登录',
+        component: login
     },
     {
         path: '/web_admin',

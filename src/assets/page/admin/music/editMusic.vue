@@ -45,7 +45,7 @@
         </div>
         <div class="lyric-container">
           <label for="">歌词：</label>
-          <textarea type="text" v-model="lyrice" class="text-box" ></textarea>
+          <textarea type="text" v-model="lyrice" class="text-box2" ></textarea>
         </div>
     </div>
     <div class="group-btn" style="text-align: right;">
@@ -241,7 +241,7 @@ export default {
   align-items: center;
   margin: 20px 0;
 }
-.text-box {
+.text-box2 {
   width: 500px;
   height: 100px;
   border: 1px solid #eee

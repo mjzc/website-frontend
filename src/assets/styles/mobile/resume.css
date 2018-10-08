@@ -255,7 +255,8 @@
   background-size: cover;
   width: 240px;
   height: 427px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02), 0 4px 8px rgba(0, 0, 0, 0.02); }
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02), 0 4px 8px rgba(0, 0, 0, 0.02);
+  z-index: 100; }
 
 .overlay {
   position: absolute;
@@ -298,7 +299,7 @@
         width: 100px;
         height: 100px;
         border-radius: 50%;
-        background-image: url(/static/image/head-img.8c862eb.jpg);
+        background-image: url("../../images/resume/head-img.jpg");
         background-size: cover;
         margin: 0 auto; }
       .adapter-mobile .header-box .mask-cheng .contain-box .header-name-box, .adapter-mobile .header-box .mask-cheng .contain-box .motto {

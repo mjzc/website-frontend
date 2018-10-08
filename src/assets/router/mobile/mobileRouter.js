@@ -6,19 +6,26 @@ import resume from '@/page/mobile/resume.vue'
 
 const mobileRouter = [
     {
-        path: '/web/index',
-        component: index
+        path: '/',
+        component: index,
+        redirect: '/web/index',
+        children: [
+            { path: '/web/index', name: 'mjia网', component: index }
+        ]
     },
     {
         path: '/web/blog',
+        name: 'mjia博客',
         component: blog
     },
     {
         path: '/web/music',
+        name: 'mjia音乐',
         component: music
     },
     {
         path: '/resume',
+        name: 'mjia简历',
         component: resume
     }
 ]

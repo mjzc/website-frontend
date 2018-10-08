@@ -288,12 +288,12 @@ export default {
         {name: 'MySQL', value:60}
       ],
       experience: [
-        {name: 'yiqigo',img: 'src/assets/images/resume/3.jpg',fadeImg: 'src/assets/images/resume/eq2.png',link: ''},
-        {name: 'lsjvip',img: 'src/assets/images/resume/2.jpg',fadeImg: 'src/assets/images/resume/eq3.jpeg',link: ''},
-        {name: 'pandaMusic',img: 'src/assets/images/resume/1.jpg',fadeImg: 'src/assets/images/resume/eq4.jpg',link: 'https://www.mjiacc.cn/mine-music/'},
-        {name: 'maisilin',img: 'src/assets/images/resume/5.jpg',fadeImg: 'src/assets/images/resume/eq1.png',link: ''},
-        {name: 'puzzle',img:'src/assets/images/resume/4.jpg',fadeImg: '',link: 'http://pg2r2whem.bkt.clouddn.com/18-10-08/puzzle/index.html'},
-        {naem: 'moneyFly',img:'src/assets/images/resume/6.jpg',fadeImg: '',link: 'http://pg2r2whem.bkt.clouddn.com/18-10-08/money-fly/index.html'},
+        {name: 'yiqigo',img: './static/img/resume/3.jpg',fadeImg: './static/img/resume/eq2.png',link: ''},
+        {name: 'lsjvip',img: './static/img/resume/2.jpg',fadeImg: './static/img/resume/eq3.jpeg',link: ''},
+        {name: 'pandaMusic',img: './static/img/resume/1.jpg',fadeImg: './static/img/resume/eq4.jpg',link: 'https://www.mjiacc.cn/mine-music/'},
+        {name: 'maisilin',img: './static/img/resume/5.jpg',fadeImg: './static/img/resume/eq1.png',link: ''},
+        {name: 'puzzle',img:'./static/img/resume/4.jpg',fadeImg: '',link: 'http://pg2r2whem.bkt.clouddn.com/18-10-08/puzzle/index.html'},
+        {naem: 'moneyFly',img:'./static/img/resume/6.jpg',fadeImg: '',link: 'http://pg2r2whem.bkt.clouddn.com/18-10-08/money-fly/index.html'},
         
       ],
       swiperOption: {
