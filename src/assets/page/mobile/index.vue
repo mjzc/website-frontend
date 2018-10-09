@@ -23,7 +23,7 @@
     </swiper>
     <!-- 鸡汤轮播按钮 -->
     <!-- <div class="soup-box">
-        <i class="el-icon-arrow-left" :class="{ 'end': index == 0}" @click="index > 0 && index--"></i>
+        <i class="el-icon-arrow-left" :class="{ 'end': index == 0}" @click="index > 0 && index"></i>
         <i class="el-icon-refresh"></i>
         <i class="el-icon-arrow-right" :class="{ 'end': (index+1) >= counts}" @click="(index+1) < counts && index++"></i>
     </div> -->
