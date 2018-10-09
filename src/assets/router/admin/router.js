@@ -32,7 +32,7 @@ const adminRouter = [
         // children: [
         //     { path: 'login', name: '网页后台登录', component: login }
         // ]
-        path: 'login',
+        path: '/login',
         name: '网页后台登录',
         component: login
     },

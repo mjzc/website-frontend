@@ -13,14 +13,20 @@ router.beforeEach((to, from, next) => {
   if (to.path == '/web/index' || to.path == '/web/blog' || to.path == '/resume') {
     next()
   } 
-
-  if (store.state.token) {
-    store.state.responsiveMenuIsShow = false
-    if (to.path === '/login') {
-      next('/web_admin/article_manage')
-    } else if (to.path === '/web_admin/edit_article' || to.path === '/web_admin/add_articles') {
+  let isLogin = store.state.token ? true : false
+  
+  if (!isLogin) {
+    if (to.path !== '/login') {
+      return next({path: '/login'})
+    }else {
       next()
     }
+  } else {
+    if (to.path === '/login') {
+      return next({path: '/web_admin'})
+    }
+    store.state.responsiveMenuIsShow = false
+    // 处理nav
     if (to.path === '/web_admin/user_manage') {
       store.state.navClassId = 1
     } else if (to.path === '/web_admin/index') {
@@ -36,7 +42,7 @@ router.beforeEach((to, from, next) => {
     } 
     next()
   }
-  next()
+    
 })
 
 new Vue({
