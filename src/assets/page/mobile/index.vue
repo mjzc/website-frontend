@@ -6,7 +6,7 @@
     <div class="mask-fixedbg-bottom"></div>
     <nav-head></nav-head>
     <!-- 中间内容 -->
-    <swiper ref="mySwiper" @slideChangeTransitionEnd="changeImg" style="display: flex;" class="index-content-box">
+    <swiper v-show="soupList.length > 0" ref="mySwiper" @slideChangeTransitionEnd="changeImg" style="display: flex;" class="index-content-box">
         <swiper-slide v-for="(item, index) in soupList" :key="index" class="silder">
             <div class="soup-content-box">
               <div class="title-box">
@@ -39,10 +39,6 @@ import navHead from '../../components/mobile/navHead.vue'
 import { getAllSoup } from "../../api/admin";
 import { format } from "../../common/js/funMethod";
 export default {
-  name: "webIndex",
-  components: {
-   
-  },
   data: function() {
     return {
       index: '',

@@ -45,7 +45,7 @@ export default {
     };
   },
   created: function() {
-    this.uploadImgUrl = process.env.NODE_ENV == 'development' ? process.env.BASE_API + '/activity/web_uploadBlogHeadImg' : process.env.BASE_API + '/web_uploadBlogHeadImg'
+    this.uploadImgUrl = process.env.NODE_ENV == 'development' ? process.env.BASE_API + '/activity/web_uploadBlogHeadImg' : process.env.BASE_API + 'web_uploadBlogHeadImg'
     this.id = this.$store.state.id;
     this.getAuthorInfo();
   },

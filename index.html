@@ -28,11 +28,13 @@
     <script>
         var imgs = document.getElementsByTagName('img');
 
-        for(var i in imgs)
-        {   
-            var img = imgs[i];
-            img.style.width='100%';
-            img.style.height='auto';
+        if (imgs) {
+            for(var i in imgs)
+            {   
+                var img = imgs[i];
+                img.style.width='100%';
+                img.style.height='auto';
+            }
         }
     </script>
   </body>
