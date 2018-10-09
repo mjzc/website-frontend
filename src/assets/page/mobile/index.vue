@@ -97,7 +97,7 @@ export default {
 <style>
 @import url("https://cdn.bootcss.com/normalize/7.0.0/normalize.min.css");
 @import url("https://cdn.bootcss.com/element-ui/2.0.11/theme-chalk/index.css");
-@import 'swiper/dist/css/swiper.css';
+/* @import 'swiper/dist/css/swiper.css'; */
 @import url("../../styles/mobile/index.css");
 .mask-fixedbg-top {
   background: -webkit-linear-gradient(#000000e6, #ffffff00);

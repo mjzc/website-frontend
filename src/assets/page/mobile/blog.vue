@@ -102,9 +102,9 @@ export default {
       var that = this;
       getAuthorInfoById({ id: this.id })
         .then(response => {
+          that.headImg = response.data[0].blogHeadImg;
           that.name = response.data[0].blogName;
           that.intro = response.data[0].blogIntro;
-          that.headImg = response.data[0].blogHeadImg;
         })
         .catch(error => {
           console.log(error);
