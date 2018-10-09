@@ -115,6 +115,7 @@ export default {
       getAuthorInfoById({ id: this.id })
         .then(response => {
           that.headImg = response.data[0].blogHeadImg;
+          console.log(that.headImg)
           that.name = response.data[0].blogName;
           that.intro = response.data[0].blogIntro;
         })
