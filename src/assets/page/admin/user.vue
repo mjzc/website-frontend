@@ -9,7 +9,7 @@
         <input type="text" class="input-box" placeholder="" v-model="blogIntro">
     </div>
    
-    <el-upload name="music"
+    <el-upload name="file"
     method="post"
     class="avatar-uploader"
     :action="uploadImgUrl"
