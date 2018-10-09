@@ -6,7 +6,7 @@
         <!-- 适配导航栏 -->
         <div class="responsive-top-nav">
             <div style="display: flex;padding: 10px;">
-                <div class="responsive-head" :style="{'background-image': 'url('+ headImg +')'}"></div>
+                <div class="responsive-head" :style="{'background-image': 'url('+ headImg + ')'}"></div>
                 <div class="responsive-top-nav-name">
                     <p>{{ name }}</p>
                     <p style="font-size: 12px;">{{ intro }}</p>
@@ -29,7 +29,7 @@
         
         <!-- 左边导航栏 -->
       <div class="left-box">
-        <div class="head" :style="{'background-image': 'url('+ headImg +')'}"></div>
+        <div class="head" :style="{'background-image': 'url('+ headImg + ')'}"></div>
         <div class="author">
           <p>{{ name }}</p>
           <p class="intro-text">{{ intro }}</p>
@@ -103,6 +103,7 @@ export default {
       getAuthorInfoById({ id: this.id })
         .then(response => {
           that.headImg = response.data[0].blogHeadImg;
+          console.log(that.headImg)
           that.name = response.data[0].blogName;
           that.intro = response.data[0].blogIntro;
         })
