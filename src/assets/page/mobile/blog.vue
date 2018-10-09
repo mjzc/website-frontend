@@ -95,7 +95,7 @@ export default {
     'nav-head': navHead
   },
   created: function() {
-    this.id = this.$store.state.id;
+    // this.id = this.$store.state.id;
     this.getUserInfo();
     this.getAllClass();
   },
@@ -112,7 +112,7 @@ export default {
     },
     getUserInfo: function() {
       var that = this;
-      getAuthorInfoById({ id: this.id })
+      getAuthorInfoById({ id: 1 })
         .then(response => {
           that.headImg = response.data[0].blogHeadImg;
           that.name = response.data[0].blogName;
