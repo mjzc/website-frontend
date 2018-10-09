@@ -28,8 +28,6 @@
         <i class="el-icon-arrow-right" :class="{ 'end': (index+1) >= counts}" @click="(index+1) < counts && index++"></i>
     </div> -->
   </div>
-  
-  
 </template>
 <script src="https://cdn.bootcss.com/element-ui/2.0.11/index.js"></script>
 
@@ -70,11 +68,15 @@ export default {
     }
   },
   created: function() {
-    this.getSoupList();
+    setTimeout(() => {
+      this.getSoupList()
+    }, 200);
   },
   methods: {
     changeImg: function () {
-      this.index = this.swiper.activeIndex
+      if (this.swiper) {
+        this.index = this.swiper.activeIndex
+      }
     },
     // 获取所有
     getSoupList: function() {
@@ -95,9 +97,9 @@ export default {
 };
 </script>
 <style>
-@import url("https://cdn.bootcss.com/normalize/7.0.0/normalize.min.css");
+/* @import url("https://cdn.bootcss.com/normalize/7.0.0/normalize.min.css"); */
 @import url("https://cdn.bootcss.com/element-ui/2.0.11/theme-chalk/index.css");
-/* @import 'swiper/dist/css/swiper.css'; */
+@import 'swiper/dist/css/swiper.css';
 @import url("../../styles/mobile/index.css");
 .mask-fixedbg-top {
   background: -webkit-linear-gradient(#000000e6, #ffffff00);
