@@ -111,17 +111,14 @@ export default {
       return this.converter.makeHtml(content)
     },
     getUserInfo: function() {
+      alert(this.id)
       var that = this;
       getAuthorInfoById({ id: this.id })
         .then(response => {
           that.headImg = response.data[0].blogHeadImg;
-          console.log(response.data[0])
-          console.log(response.data[0].blogHeadImg)
-          console.log(that.headImg)
           that.name = response.data[0].blogName;
-          console.log(that.name)
           that.intro = response.data[0].blogIntro;
-          console.log(that.intro)
+      alert(that.name)
         })
         .catch(error => {
           console.log(error);

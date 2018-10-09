@@ -528,6 +528,11 @@
     display: block;
   }
 }
+@media screen and (max-width: 350px) {
+  .swiper3 {
+    width: 82% !important;
+  }
+}
 // 大于960px小于1200px
 // @media screen and (min-width:960px) and (max-width:1200px){
 //   body{

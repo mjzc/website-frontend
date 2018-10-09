@@ -442,6 +442,9 @@
 
   .adapter-mobile {
     display: block; } }
+@media screen and (max-width: 350px) {
+  .swiper3 {
+    width: 82% !important; } }
 @media screen and (min-width: 960px) {
   #app, .page {
     height: 100%;
