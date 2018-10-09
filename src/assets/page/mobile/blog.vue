@@ -96,10 +96,8 @@ export default {
   },
   created: function() {
     this.id = this.$store.state.id;
-    setTimeout(() => {
-      this.getUserInfo();
-      this.getAllClass();
-    }, 200);
+    this.getUserInfo();
+    this.getAllClass();
   },
   mounted() {
    this.init()
@@ -113,14 +111,12 @@ export default {
       return this.converter.makeHtml(content)
     },
     getUserInfo: function() {
-      alert(this.id)
       var that = this;
       getAuthorInfoById({ id: this.id })
         .then(response => {
           that.headImg = response.data[0].blogHeadImg;
           that.name = response.data[0].blogName;
           that.intro = response.data[0].blogIntro;
-      alert(that.name)
         })
         .catch(error => {
           console.log(error);
