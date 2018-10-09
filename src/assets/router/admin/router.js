@@ -1,37 +1,90 @@
-import login from '@/page/admin/log'
-import adminIndex from '@/page/admin/index'
-
-import home from '@/page/admin/home'
-import userManage from '@/page/admin/user'
-
+const login = (resolve) => {
+  import('@/page/admin/log').then((module) => {
+    resolve(module)
+  })
+}
+const adminIndex = (resolve) => {
+  import('@/page/admin/index').then((module) => {
+    resolve(module)
+  })
+}
+const home = (resolve) => {
+  import('@/page/admin/home').then((module) => {
+    resolve(module)
+  })
+}
+const userManage = (resolve) => {
+  import('@/page/admin/user').then((module) => {
+    resolve(module)
+  })
+}
 /******      博客管理      ******/
-import articlesList from '@/page/admin/article/articleList'
-import addArticle from '@/page/admin/article/addArticle'
-import editArticle from '@/page/admin/article/editArticle'
-
+const articlesList = (resolve) => {
+  mport('@/page/admin/article/articleList').then((module) => {
+    resolve(module)
+  })
+}
+const addArticle = (resolve) => {
+  import('@/page/admin/article/addArticle').then((module) => {
+    resolve(module)
+  })
+}
+const editArticle = (resolve) => {
+  import('@/page/admin/article/editArticle').then((module) => {
+    resolve(module)
+  })
+}
 /******      音乐管理      ******/
-import musicManage from '@/page/admin/music/musicList'
-import addMusic from '@/page/admin/music/addMusic'
-import editMusic from '@/page/admin/music/editMusic'
-
+const musicManage = (resolve) => {
+  import('@/page/admin/music/musicList').then((module) => {
+    resolve(module)
+  })
+}
+const addMusic = (resolve) => {
+  import('@/page/admin/music/addMusic').then((module) => {
+    resolve(module)
+  })
+}
+const editMusic = (resolve) => {
+  import('@/page/admin/music/editMusic').then((module) => {
+    resolve(module)
+  })
+}
 /******      歌手管理      ******/
-import singerManage from '@/page/admin/singer/singerList'
-import addSinger from '@/page/admin/singer/addSinger'
-import editSinger from '@/page/admin/singer/editSinger'
-
+const singerManage = (resolve) => {
+  import('@/page/admin/singer/singerList').then((module) => {
+    resolve(module)
+  })
+}
+const addSinger = (resolve) => {
+  import('@/page/admin/singer/addSinger').then((module) => {
+    resolve(module)
+  })
+}
+const editSinger = (resolve) => {
+  import('@/page/admin/singer/editSinger').then((module) => {
+    resolve(module)
+  })
+}
 /******      动态管理      ******/
-import addSoup from '@/page/admin/soup/addSoup'
-import soupManage from '@/page/admin/soup/soupList'
-import editSoup from '@/page/admin/soup/editSoup'
+const addSoup = (resolve) => {
+  import('@/page/admin/soup/addSoup').then((module) => {
+    resolve(module)
+  })
+}
+const soupManage = (resolve) => {
+  import('@/page/admin/soup/soupList').then((module) => {
+    resolve(module)
+  })
+}
+const editSoup = (resolve) => {
+  import('@/page/admin/soup/editSoup').then((module) => {
+    resolve(module)
+  })
+}
 
 const adminRouter = [
     {
-        // path: '/',
-        // component: login,
-        // redirect: '/login',
-        // children: [
-        //     { path: 'login', name: '网页后台登录', component: login }
-        // ]
         path: '/login',
         name: '网页后台登录',
         component: login
