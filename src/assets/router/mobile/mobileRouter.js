@@ -1,8 +1,24 @@
 
-import index from '@/page/mobile/index.vue'
-import blog from '@/page/mobile/blog.vue'
-import music from '@/page/mobile/music.vue'
-import resume from '@/page/mobile/resume.vue'
+const index = (resolve) => {
+    import('@/page/mobile/index.vue').then((module) => {
+      resolve(module)
+    })
+  }
+  const blog = (resolve) => {
+    import('@/page/mobile/blog.vue').then((module) => {
+      resolve(module)
+    })
+  }
+const music = (resolve) => {
+    import('@/page/mobile/music.vue').then((module) => {
+      resolve(module)
+    })
+  }
+  const resume = (resolve) => {
+    import('@/page/mobile/resume.vue').then((module) => {
+      resolve(module)
+    })
+  }
 
 const mobileRouter = [
     {
