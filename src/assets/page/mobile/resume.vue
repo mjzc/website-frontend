@@ -300,7 +300,7 @@ export default {
         direction : 'vertical'
       },
       swiperOption3: {
-        spaceBetween : 10,
+        spaceBetween : 30,
         pagination: {
           el: '.swiper-pagination3'
         }
