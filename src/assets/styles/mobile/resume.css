@@ -442,9 +442,6 @@
 
   .adapter-mobile {
     display: block; } }
-@media screen and (max-width: 350px) {
-  .swiper3 {
-    width: 82% !important; } }
 @media screen and (min-width: 960px) {
   #app, .page {
     height: 100%;
@@ -456,5 +453,8 @@
 
   .adapter-mobile {
     display: none; } }
+@media screen and (max-width: 350px) {
+  .swiper3 {
+    width: 82% !important; } }
 
 /*# sourceMappingURL=resume.css.map */

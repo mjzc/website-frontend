@@ -96,8 +96,10 @@ export default {
   },
   created: function() {
     this.id = this.$store.state.id;
-    this.getUserInfo();
-    this.getAllClass();
+    setTimeout(() => {
+      this.getUserInfo();
+      this.getAllClass();
+    }, 200);
   },
   mounted() {
    this.init()
