@@ -70,7 +70,7 @@ export default {
       var converter = new showdown.Converter()
       this.converter = converter
     },
-    contentChanged(){ 
+    contentChanged(){
         this.html = this.converter.makeHtml(this.content)
         document.getElementById('show-content').innerHTML = this.html
     },
@@ -90,7 +90,6 @@ export default {
     // 添加文章
     sumbitArticle: function() {
       var that = this;
-      
       if (
         this.content == "" ||
         this.title == "" ||
@@ -102,7 +101,7 @@ export default {
       }
       var data = {
         title: that.title,
-        content: that.html,
+        content: that.content,
         classId: that.classId,
         introductionText: that.introductionText
       };

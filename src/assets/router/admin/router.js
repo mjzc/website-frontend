@@ -20,7 +20,7 @@ const userManage = (resolve) => {
 }
 /******      博客管理      ******/
 const articlesList = (resolve) => {
-  mport('@/page/admin/article/articleList').then((module) => {
+  import('@/page/admin/article/articleList').then((module) => {
     resolve(module)
   })
 }

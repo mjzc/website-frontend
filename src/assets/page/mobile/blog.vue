@@ -49,7 +49,7 @@
                     <div class="content-main">
                         <p class="article-title">{{ item.title }}</p>
                         <p class="article-intro">简介：{{ item.introductionText }}</p>
-                        <p class="article-main-content" v-show="item['content_'+item.id]" v-html="item.contentHtml"></p>
+                        <p class="article-main-content" v-show="item['content_'+item.id]" v-html="changeContentHtml(item.contentHtml)"></p>
                         <span style="font-size: 12px; color:rgb(255, 65, 88);float: right;" @click="(item['content_'+item.id])  ? (item['content_'+item.id]) = false : (item['content_'+item.id]) = true">
                             {{item['content_'+item.id] ? '收起': '阅读全文'}}
                             <i v-show="!item['content_'+item.id]" class="el-icon-arrow-down"></i>
@@ -68,6 +68,7 @@
 
 <script>
 import navHead from '../../components/mobile/navHead.vue'
+import showdown from 'showdown'
 import {
   getAuthorInfoById,
   getAllArticlesClass,
@@ -86,6 +87,7 @@ export default {
       classId: 0,
       articlesList: [],
       responseMenu: false,
+      converter: null,
       className: ""
     };
   },
@@ -97,13 +99,22 @@ export default {
     this.getUserInfo();
     this.getAllClass();
   },
+  mounted() {
+   this.init()
+  },
   methods: {
+    init:function () {
+      var converter = new showdown.Converter()
+      this.converter = converter
+    },
+    changeContentHtml: function (content) {
+      return this.converter.makeHtml(content)
+    },
     getUserInfo: function() {
       var that = this;
       getAuthorInfoById({ id: this.id })
         .then(response => {
           that.headImg = response.data[0].blogHeadImg;
-          console.log(that.headImg)
           that.name = response.data[0].blogName;
           that.intro = response.data[0].blogIntro;
         })

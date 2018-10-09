@@ -1,0 +1,2 @@
+webpackJsonp([20],{"NCz/":function(e,t,n){"use strict";Object.defineProperty(t,"__esModule",{value:!0});var l={render:function(){var e=this.$createElement;return(this._self._c||e)("div",{staticStyle:{padding:"100px","text-align":"center","font-size":"20px"}},[this._v("\n                我是首页内容（暂定）\n")])},staticRenderFns:[]},i=n("VU/8")(null,l,!1,null,null,null);t.default=i.exports}});
+//# sourceMappingURL=20.46a7166be438ad3d3057.js.map

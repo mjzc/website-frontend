@@ -12,9 +12,9 @@ router.beforeEach((to, from, next) => {
 
   if (to.path == '/web/index' || to.path == '/web/blog' || to.path == '/resume') {
     next()
-  } 
+    return
+  }
   let isLogin = store.state.token ? true : false
-  
   if (!isLogin) {
     if (to.path !== '/login') {
       return next({path: '/login'})
