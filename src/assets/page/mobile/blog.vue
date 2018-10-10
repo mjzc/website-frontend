@@ -159,7 +159,6 @@ export default {
 </script>
 
 <style>
-/* @import url('https://cdn.bootcss.com/normalize/7.0.0/normalize.min.css'); */
 @import url("../../styles/mobile/index.css");
 @import url("../../styles/mobile/article.css");
 .no-content {
