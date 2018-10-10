@@ -29,7 +29,6 @@
     </div> -->
   </div>
 </template>
-<!--<script src="https://cdn.bootcss.com/element-ui/2.0.11/index.js"></script> -->
 
 <script>
 import { swiper, swiperSlide } from 'vue-awesome-swiper'
@@ -97,8 +96,6 @@ export default {
 };
 </script>
 <style>
-/* @import url("https://cdn.bootcss.com/normalize/7.0.0/normalize.min.css"); */
-/* @import url("https://cdn.bootcss.com/element-ui/2.0.11/theme-chalk/index.css"); */
 @import 'swiper/dist/css/swiper.css';
 @import url("../../styles/mobile/index.css");
 .mask-fixedbg-top {
@@ -117,12 +114,12 @@ export default {
   left: 0;
   height: 500px;
 }
-/* @font-face {
+@font-face {
   font-family: element-icons;
   src: url('../../fonts/element-icons.woff?t=1472440741') format('woff'), url('../../fonts/element-icons.ttf?t=1472440741') format('truetype');
   font-weight: 400;
   font-style: normal;
-} */
+}
 .soup-content-box {
   position: absolute;
   left: 0;

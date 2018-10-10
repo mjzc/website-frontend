@@ -21,7 +21,6 @@
     </div>
 </template>
 
-<script src="https://cdn.bootcss.com/element-ui/2.0.11/index.js"></script>
 <script>
 import leftNav from "@/components/admin/leftNav.vue";
 import topHead from "@/components/admin/topHead.vue";
@@ -38,7 +37,6 @@ export default {
 };
 </script>
 <style>
-@import url('https://cdn.bootcss.com/normalize/7.0.0/normalize.min.css');
-@import url('https://cdn.bootcss.com/element-ui/2.0.11/theme-chalk/index.css');
+/* @import url('https://cdn.bootcss.com/normalize/7.0.0/normalize.min.css'); */
 @import url('../../styles/admin.css');
 </style>
